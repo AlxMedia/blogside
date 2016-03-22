@@ -20,7 +20,7 @@
 				
 				<div class="entry">	
 					<?php the_content(); ?>
-					<?php wp_link_pages(array('before'=>'<div class="post-pages">'.__('Pages:','blogline'),'after'=>'</div>')); ?>
+					<?php wp_link_pages(array('before'=>'<div class="post-pages">'.esc_html__('Pages:','blogline'),'after'=>'</div>')); ?>
 					<div class="clear"></div>				
 				</div><!--/.entry-->
 				
@@ -29,7 +29,7 @@
 		
 		<div class="clear"></div>
 		
-		<?php the_tags('<p class="post-tags"><span>'.__('Tags:','blogline').'</span> ','','</p>'); ?>
+		<?php the_tags('<p class="post-tags"><span>'.esc_html__('Tags:','blogline').'</span> ','','</p>'); ?>
 		
 		<?php if ( ot_get_option('sharrre') != 'off' ) { get_template_part('inc/sharrre'); } ?>
 		

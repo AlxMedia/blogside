@@ -24,10 +24,10 @@ class AlxTabs extends WP_Widget {
 	private function _create_tabs($tabs,$count) {
 		// Borrowed from Jermaine Maree, thanks mate!
 		$titles = array(
-			'recent'	=> __('Recent Posts','blogline'),
-			'popular'	=> __('Popular Posts','blogline'),
-			'comments'	=> __('Recent Comments','blogline'),
-			'tags'		=> __('Tags','blogline')
+			'recent'	=> esc_html__('Recent Posts','blogline'),
+			'popular'	=> esc_html__('Popular Posts','blogline'),
+			'comments'	=> esc_html__('Recent Comments','blogline'),
+			'tags'		=> esc_html__('Tags','blogline')
 		);
 		$icons = array(
 			'recent'   => 'fa fa-clock-o',
@@ -184,7 +184,7 @@ class AlxTabs extends WP_Widget {
 						
 						<div class="tab-item-inner group">
 							<?php $str=explode(' ',get_comment_excerpt($comment->comment_ID)); $comment_excerpt=implode(' ',array_slice($str,0,11)); if(count($str) > 11 && substr($comment_excerpt,-1)!='.') $comment_excerpt.='...' ?>					
-							<div class="tab-item-name"><?php echo esc_attr( $comment->comment_author ); ?> <?php _e('says:','blogline'); ?></div>
+							<div class="tab-item-name"><?php echo esc_attr( $comment->comment_author ); ?> <?php esc_html_e('says:','blogline'); ?></div>
 							<div class="tab-item-comment"><a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>"><?php echo esc_attr( $comment_excerpt ); ?></a></div>
 							
 						</div>

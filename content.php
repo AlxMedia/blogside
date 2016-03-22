@@ -23,7 +23,7 @@
 		<div class="entry">
 			<?php 
 				if ( is_search() ) { the_excerpt(); } 
-				else the_content(__('Continue reading...','blogline'));
+				else the_content(esc_html__('Continue reading...','blogline'));
 			?>
 		</div><!--/.entry-->
 		
