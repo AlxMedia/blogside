@@ -341,13 +341,23 @@ function custom_theme_options() {
 			'type'		=> 'on-off',
 			'section'	=> 'header'
 		),
+		// Header: Enable profile section.
+		array(
+			'id'		=> 'enable-profile',
+			'label'		=> esc_html__( 'Enable profile', 'blogline' ),
+			'desc'		=> esc_html__( 'Display profile section and social links in the top of sidebar', 'blogline' ),
+			'type'		=> 'on-off',
+			'section'	=> 'header',
+			'std'		=> 'on',
+		),
 		// Header: Profile Avatar
 		array(
 			'id'		=> 'profile-image',
 			'label'		=> esc_html__( 'Profile Image', 'blogline' ),
 			'desc'		=> esc_html__( 'Minimum width 400px.', 'blogline' ),
 			'type'		=> 'upload',
-			'section'	=> 'header'
+			'section'	=> 'header',
+			'condition'	=> 'enable-profile:is(on)',
 		),
 		// Header: Profile Name
 		array(
@@ -355,7 +365,8 @@ function custom_theme_options() {
 			'label'		=> esc_html__( 'Profile Name', 'blogline' ),
 			'desc'		=> esc_html__( 'Your name appears below the image', 'blogline' ),
 			'type'		=> 'text',
-			'section'	=> 'header'
+			'section'	=> 'header',
+			'condition'	=> 'enable-profile:is(on)',
 		),
 		// Header: Profile Description
 		array(
@@ -363,7 +374,8 @@ function custom_theme_options() {
 			'label'		=> esc_html__( 'Profile Description', 'blogline' ),
 			'desc'		=> esc_html__( 'A short description of you', 'blogline' ),
 			'type'		=> 'text',
-			'section'	=> 'header'
+			'section'	=> 'header',
+			'condition'	=> 'enable-profile:is(on)',
 		),
 		// Footer: Ads
 		array(
