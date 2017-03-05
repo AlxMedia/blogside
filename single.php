@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="content">
+<div class="content">
 	<div class="pad group">
 		
 		<?php while ( have_posts() ): the_post(); ?>
@@ -51,7 +51,7 @@
 		<?php if ( ot_get_option('post-comments') != 'off' ) { comments_template('/comments.php',true); } ?>
 		
 	</div><!--/.pad-->
-</section><!--/.content-->
+</div><!--/.content-->
 
 <?php get_sidebar(); ?>
 
