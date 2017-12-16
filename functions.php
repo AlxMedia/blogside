@@ -26,9 +26,6 @@ if ( ! function_exists( 'alx_load' ) ) {
 		include( get_template_directory() . '/functions/widgets/alx-tabs.php' );
 		include( get_template_directory() . '/functions/widgets/alx-video.php' );
 		include( get_template_directory() . '/functions/widgets/alx-posts.php' );
-		
-		// Load custom shortcodes
-		include( get_template_directory() . '/functions/shortcodes.php' );
 
 		// Load dynamic styles
 		include( get_template_directory() . '/functions/dynamic-styles.php' );
