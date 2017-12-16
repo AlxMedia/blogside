@@ -6,17 +6,7 @@
 	// Use a child theme instead of placing custom functions here
 	// http://codex.wordpress.org/Child_Themes
 
-
-/* ------------------------------------------------------------------------- *
- *  OptionTree framework integration: Use in theme mode
-/* ------------------------------------------------------------------------- */
 	
-	add_filter( 'ot_show_pages', '__return_false' );
-	add_filter( 'ot_show_new_layout', '__return_false' );
-	add_filter( 'ot_theme_mode', '__return_true' );
-	include( get_template_directory() . '/option-tree/ot-loader.php' );
-
-
 /* ------------------------------------------------------------------------- *
  *  Load theme files
 /* ------------------------------------------------------------------------- */	
@@ -28,6 +18,7 @@ if ( ! function_exists( 'alx_load' ) ) {
 		load_theme_textdomain( 'blogline', get_template_directory().'/languages' );
 		
 		// Load theme options and meta boxes
+		include( get_template_directory() . '/functions/kirki/kirki.php' );
 		include( get_template_directory() . '/functions/theme-options.php' );
 		include( get_template_directory() . '/functions/meta-boxes.php' );
 		
@@ -112,17 +103,17 @@ if ( ! function_exists( 'alx_sidebars' ) ) {
 
 	function alx_sidebars()	{
 		register_sidebar(array( 'name' => 'Primary','id' => 'primary','description' => "Normal full width sidebar", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>'));
-		if ( ot_get_option('footer-ads') == 'on' ) { register_sidebar(array( 'name' => 'Footer Ads','id' => 'footer-ads', 'description' => "Footer ads area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('footer-ads') == 'on' ) { register_sidebar(array( 'name' => 'Footer Ads','id' => 'footer-ads', 'description' => "Footer ads area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
 		
-		if ( ot_get_option('frontpage-widgets-top') == 'on' ) { register_sidebar(array( 'name' => 'Frontpage Top 1','id' => 'frontpage-top-1', 'description' => "Frontpage area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( ot_get_option('frontpage-widgets-top') == 'on' ) { register_sidebar(array( 'name' => 'Frontpage Top 2','id' => 'frontpage-top-2', 'description' => "Frontpage area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( ot_get_option('frontpage-widgets-bottom') == 'on' ) { register_sidebar(array( 'name' => 'Frontpage Bottom 1','id' => 'frontpage-bottom-1', 'description' => "Frontpage area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( ot_get_option('frontpage-widgets-bottom') == 'on' ) { register_sidebar(array( 'name' => 'Frontpage Bottom 2','id' => 'frontpage-bottom-2', 'description' => "Frontpage area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('frontpage-widgets-top') == 'on' ) { register_sidebar(array( 'name' => 'Frontpage Top 1','id' => 'frontpage-top-1', 'description' => "Frontpage area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('frontpage-widgets-top') == 'on' ) { register_sidebar(array( 'name' => 'Frontpage Top 2','id' => 'frontpage-top-2', 'description' => "Frontpage area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('frontpage-widgets-bottom') == 'on' ) { register_sidebar(array( 'name' => 'Frontpage Bottom 1','id' => 'frontpage-bottom-1', 'description' => "Frontpage area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('frontpage-widgets-bottom') == 'on' ) { register_sidebar(array( 'name' => 'Frontpage Bottom 2','id' => 'frontpage-bottom-2', 'description' => "Frontpage area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
 		
-		if ( ot_get_option('footer-widgets') >= '1' ) { register_sidebar(array( 'name' => 'Footer 1','id' => 'footer-1', 'description' => "Widgetized footer", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( ot_get_option('footer-widgets') >= '2' ) { register_sidebar(array( 'name' => 'Footer 2','id' => 'footer-2', 'description' => "Widgetized footer", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( ot_get_option('footer-widgets') >= '3' ) { register_sidebar(array( 'name' => 'Footer 3','id' => 'footer-3', 'description' => "Widgetized footer", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( ot_get_option('footer-widgets') >= '4' ) { register_sidebar(array( 'name' => 'Footer 4','id' => 'footer-4', 'description' => "Widgetized footer", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }	
+		if ( get_theme_mod('footer-widgets') >= '1' ) { register_sidebar(array( 'name' => 'Footer 1','id' => 'footer-1', 'description' => "Widgetized footer", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('footer-widgets') >= '2' ) { register_sidebar(array( 'name' => 'Footer 2','id' => 'footer-2', 'description' => "Widgetized footer", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('footer-widgets') >= '3' ) { register_sidebar(array( 'name' => 'Footer 3','id' => 'footer-3', 'description' => "Widgetized footer", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('footer-widgets') >= '4' ) { register_sidebar(array( 'name' => 'Footer 4','id' => 'footer-4', 'description' => "Widgetized footer", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }	
 	}
 	
 }
@@ -152,8 +143,8 @@ if ( ! function_exists( 'alx_styles' ) ) {
 	
 	function alx_styles() {
 		wp_enqueue_style( 'style', get_stylesheet_uri() );
-		if ( ot_get_option('responsive') != 'off' ) { wp_enqueue_style( 'responsive', get_template_directory_uri().'/responsive.css' ); }
-		if ( ot_get_option('custom') == 'on' ) { wp_enqueue_style( 'custom', get_template_directory_uri().'/custom.css' ); }
+		if ( get_theme_mod('responsive','on') =='on' ) { wp_enqueue_style( 'responsive', get_template_directory_uri().'/responsive.css' ); }
+		if ( get_theme_mod('custom','off') == 'on' ) { wp_enqueue_style( 'custom', get_template_directory_uri().'/custom.css' ); }
 		wp_enqueue_style( 'font-awesome', get_template_directory_uri().'/fonts/font-awesome.min.css' );
 	}
 	
@@ -166,9 +157,9 @@ add_action( 'wp_enqueue_scripts', 'alx_styles' );
 if ( ! function_exists( 'alx_custom_sidebars' ) ) {
 
 	function alx_custom_sidebars() {
-		if ( !ot_get_option('sidebar-areas') =='' ) {
+		if ( !get_theme_mod('sidebar-areas') =='' ) {
 			
-			$sidebars = ot_get_option('sidebar-areas', array());
+			$sidebars = get_theme_mod('sidebar-areas', array());
 			
 			if ( !empty( $sidebars ) ) {
 				foreach( $sidebars as $sidebar ) {
@@ -207,21 +198,21 @@ if ( ! function_exists( 'alx_layout_class' ) ) {
 			// Get if set and not set to inherit
 			if ( isset($meta) && !empty($meta) && $meta != 'inherit' ) { $layout = $meta; }
 			// Else check for page-global / single-global
-			elseif ( is_single() && ( ot_get_option('layout-single') !='inherit' ) ) $layout = ot_get_option('layout-single',''.$default.'');
-			elseif ( is_page() && ( ot_get_option('layout-page') !='inherit' ) ) $layout = ot_get_option('layout-page',''.$default.'');
+			elseif ( is_single() && ( get_theme_mod('layout-single') !='inherit' ) ) $layout = get_theme_mod('layout-single',''.$default.'');
+			elseif ( is_page() && ( get_theme_mod('layout-page') !='inherit' ) ) $layout = get_theme_mod('layout-page',''.$default.'');
 			// Else get global option
-			else $layout = ot_get_option('layout-global',''.$default.'');
+			else $layout = get_theme_mod('layout-global',''.$default.'');
 		}
 		
 		// Set layout based on page
-		elseif ( is_home() && ( ot_get_option('layout-home') !='inherit' ) ) $layout = ot_get_option('layout-home',''.$default.'');
-		elseif ( is_category() && ( ot_get_option('layout-archive-category') !='inherit' ) ) $layout = ot_get_option('layout-archive-category',''.$default.'');
-		elseif ( is_archive() && ( ot_get_option('layout-archive') !='inherit' ) ) $layout = ot_get_option('layout-archive',''.$default.'');
-		elseif ( is_search() && ( ot_get_option('layout-search') !='inherit' ) ) $layout = ot_get_option('layout-search',''.$default.'');
-		elseif ( is_404() && ( ot_get_option('layout-404') !='inherit' ) ) $layout = ot_get_option('layout-404',''.$default.'');
+		elseif ( is_home() && ( get_theme_mod('layout-home') !='inherit' ) ) $layout = get_theme_mod('layout-home',''.$default.'');
+		elseif ( is_category() && ( get_theme_mod('layout-archive-category') !='inherit' ) ) $layout = get_theme_mod('layout-archive-category',''.$default.'');
+		elseif ( is_archive() && ( get_theme_mod('layout-archive') !='inherit' ) ) $layout = get_theme_mod('layout-archive',''.$default.'');
+		elseif ( is_search() && ( get_theme_mod('layout-search') !='inherit' ) ) $layout = get_theme_mod('layout-search',''.$default.'');
+		elseif ( is_404() && ( get_theme_mod('layout-404') !='inherit' ) ) $layout = get_theme_mod('layout-404',''.$default.'');
 		
 		// Global option
-		else $layout = ot_get_option('layout-global',''.$default.'');
+		else $layout = get_theme_mod('layout-global',''.$default.'');
 		
 		// Return layout class
 		return $layout;
@@ -239,13 +230,13 @@ if ( ! function_exists( 'alx_sidebar_primary' ) ) {
 		$sidebar = 'primary';
 
 		// Set sidebar based on page
-		if ( is_home() && ot_get_option('s1-home') ) $sidebar = ot_get_option('s1-home');
-		if ( is_single() && ot_get_option('s1-single') ) $sidebar = ot_get_option('s1-single');
-		if ( is_archive() && ot_get_option('s1-archive') ) $sidebar = ot_get_option('s1-archive');
-		if ( is_category() && ot_get_option('s1-archive-category') ) $sidebar = ot_get_option('s1-archive-category');
-		if ( is_search() && ot_get_option('s1-search') ) $sidebar = ot_get_option('s1-search');
-		if ( is_404() && ot_get_option('s1-404') ) $sidebar = ot_get_option('s1-404');
-		if ( is_page() && ot_get_option('s1-page') ) $sidebar = ot_get_option('s1-page');
+		if ( is_home() && get_theme_mod('s1-home') ) $sidebar = get_theme_mod('s1-home');
+		if ( is_single() && get_theme_mod('s1-single') ) $sidebar = get_theme_mod('s1-single');
+		if ( is_archive() && get_theme_mod('s1-archive') ) $sidebar = get_theme_mod('s1-archive');
+		if ( is_category() && get_theme_mod('s1-archive-category') ) $sidebar = get_theme_mod('s1-archive-category');
+		if ( is_search() && get_theme_mod('s1-search') ) $sidebar = get_theme_mod('s1-search');
+		if ( is_404() && get_theme_mod('s1-404') ) $sidebar = get_theme_mod('s1-404');
+		if ( is_page() && get_theme_mod('s1-page') ) $sidebar = get_theme_mod('s1-page');
 
 		// Check for page/post specific sidebar
 		if ( is_page() || is_single() ) {
@@ -273,13 +264,13 @@ if ( ! function_exists( 'alx_sidebar_secondary' ) ) {
 		$sidebar = 'secondary';
 
 		// Set sidebar based on page
-		if ( is_home() && ot_get_option('s2-home') ) $sidebar = ot_get_option('s2-home');
-		if ( is_single() && ot_get_option('s2-single') ) $sidebar = ot_get_option('s2-single');
-		if ( is_archive() && ot_get_option('s2-archive') ) $sidebar = ot_get_option('s2-archive');
-		if ( is_category() && ot_get_option('s2-archive-category') ) $sidebar = ot_get_option('s2-archive-category');
-		if ( is_search() && ot_get_option('s2-search') ) $sidebar = ot_get_option('s2-search');
-		if ( is_404() && ot_get_option('s2-404') ) $sidebar = ot_get_option('s2-404');
-		if ( is_page() && ot_get_option('s2-page') ) $sidebar = ot_get_option('s2-page');
+		if ( is_home() && get_theme_mod('s2-home') ) $sidebar = get_theme_mod('s2-home');
+		if ( is_single() && get_theme_mod('s2-single') ) $sidebar = get_theme_mod('s2-single');
+		if ( is_archive() && get_theme_mod('s2-archive') ) $sidebar = get_theme_mod('s2-archive');
+		if ( is_category() && get_theme_mod('s2-archive-category') ) $sidebar = get_theme_mod('s2-archive-category');
+		if ( is_search() && get_theme_mod('s2-search') ) $sidebar = get_theme_mod('s2-search');
+		if ( is_404() && get_theme_mod('s2-404') ) $sidebar = get_theme_mod('s2-404');
+		if ( is_page() && get_theme_mod('s2-page') ) $sidebar = get_theme_mod('s2-page');
 
 		// Check for page/post specific sidebar
 		if ( is_page() || is_single() ) {
@@ -303,8 +294,8 @@ if ( ! function_exists( 'alx_sidebar_secondary' ) ) {
 if ( ! function_exists( 'alx_social_links' ) ) {
 
 	function alx_social_links() {
-		if ( !ot_get_option('social-links') =='' ) {
-			$links = ot_get_option('social-links', array());
+		if ( !get_theme_mod('social-links') =='' ) {
+			$links = get_theme_mod('social-links', array());
 			if ( !empty( $links ) ) {
 				echo '<ul class="social-links">';	
 				foreach( $links as $item ) {
@@ -341,8 +332,8 @@ if ( ! function_exists( 'alx_site_title' ) ) {
 	function alx_site_title() {
 	
 		// Text or image?
-		if ( ot_get_option('custom-logo') ) {
-			$logo = '<img src="'.ot_get_option('custom-logo').'" alt="'.get_bloginfo('name').'">';
+		if ( get_theme_mod('custom-logo') ) {
+			$logo = '<img src="'.get_theme_mod('custom-logo').'" alt="'.get_bloginfo('name').'">';
 		} else {
 			$logo = get_bloginfo('name');
 		}
@@ -387,8 +378,8 @@ if ( ! function_exists( 'alx_blog_title' ) ) {
 
 	function alx_blog_title() {
 		global $post;
-		$heading = esc_attr( ot_get_option('blog-heading') );
-		$subheading = esc_attr( ot_get_option('blog-subheading') );
+		$heading = esc_attr( get_theme_mod('blog-heading') );
+		$subheading = esc_attr( get_theme_mod('blog-subheading') );
 		if($heading) { 
 			$title = $heading;
 		} else {
@@ -423,7 +414,7 @@ if ( ! function_exists( 'alx_related_posts' ) ) {
 			'posts_per_page'			=> 3
 		);
 		// Related by categories
-		if ( ot_get_option('related-posts') == 'categories' ) {
+		if ( get_theme_mod('related-posts') == 'categories' ) {
 			
 			$cats = get_post_meta($post->ID, 'related-cat', true);
 			
@@ -435,7 +426,7 @@ if ( ! function_exists( 'alx_related_posts' ) ) {
 			}
 		}
 		// Related by tags
-		if ( ot_get_option('related-posts') == 'tags' ) {
+		if ( get_theme_mod('related-posts') == 'tags' ) {
 		
 			$tags = get_post_meta($post->ID, 'related-tag', true);
 			
@@ -485,8 +476,8 @@ if ( ! function_exists( 'alx_get_featured_post_ids' ) ) {
 
 	function alx_get_featured_post_ids() {
 		$args = array(
-			'category'		=> ot_get_option('featured-category'),
-			'numberposts'	=> ot_get_option('featured-posts-count')
+			'category'		=> get_theme_mod('featured-category'),
+			'numberposts'	=> get_theme_mod('featured-posts-count')
 		);
 		$posts = get_posts($args);
 		if ( !$posts ) return false;
@@ -527,12 +518,10 @@ if ( ! function_exists( 'alx_body_class' ) ) {
 
 	function alx_body_class( $classes ) {
 		$classes[] = alx_layout_class();
-		if ( ot_get_option( 'boxed' ) != 'on' ) { $classes[] = 'full-width'; }
-		if ( ot_get_option( 'boxed' ) == 'on' ) { $classes[] = 'boxed'; }
+		if ( get_theme_mod( 'boxed','off' ) != 'on' ) { $classes[] = 'full-width'; }
+		if ( get_theme_mod( 'boxed','off' ) == 'on' ) { $classes[] = 'boxed'; }
 		if ( has_nav_menu('topbar') ) {	$classes[] = 'topbar-enabled'; }
-		if ( ot_get_option( 'mobile-sidebar-hide' ) == 's1' ) { $classes[] = 'mobile-sidebar-hide-s1'; }
-		if ( ot_get_option( 'mobile-sidebar-hide' ) == 's2' ) { $classes[] = 'mobile-sidebar-hide-s2'; }
-		if ( ot_get_option( 'mobile-sidebar-hide' ) == 's1-s2' ) { $classes[] = 'mobile-sidebar-hide'; }
+		if ( get_theme_mod( 'mobile-sidebar-hide','on' ) != 'on' ) { $classes[] = 'mobile-sidebar-hide'; }
 		return $classes;
 	}
 	
@@ -549,7 +538,7 @@ if ( ! function_exists( 'alx_feed_link' ) ) {
 		if ( strpos( $output, 'comments' ) )
 			return $output;
 		// Return feed url
-		return esc_attr( ot_get_option('rss-feed',$output) );
+		return esc_attr( get_theme_mod('rss-feed',$output) );
 	}
 	
 }
@@ -573,7 +562,7 @@ add_filter( 'excerpt_more', 'alx_excerpt_more' );
 if ( ! function_exists( 'alx_excerpt_length' ) ) {
 
 	function alx_excerpt_length( $length ) {
-		return ot_get_option('excerpt-length',$length);
+		return get_theme_mod('excerpt-length',$length);
 	}
 	
 }
@@ -649,11 +638,11 @@ if ( ! function_exists( 'alx_pre_get_posts' ) ) {
 		if ( $query->is_home() ) {
 
 			// Featured posts enabled
-			if ( ot_get_option('featured-posts-count') != '0' ) {
+			if ( get_theme_mod('featured-posts-count') != '0' ) {
 				// Get featured post ids
 				$featured_post_ids = alx_get_featured_post_ids();
 				// Exclude posts
-				if ( $featured_post_ids && !ot_get_option('featured-posts-include') )
+				if ( $featured_post_ids && !get_theme_mod('featured-posts-include') )
 					$query->set('post__not_in', $featured_post_ids);
 			}
 		}
@@ -709,9 +698,16 @@ add_action( 'wp_footer', 'alx_ie_js_footer', 20 );
 if ( ! function_exists( 'alx_plugins' ) ) {
 	
 	function alx_plugins() {	
-		if ( ot_get_option('recommended-plugins') != 'off' ) { 		
+		if ( get_theme_mod('recommended-plugins','on') =='on' ) { 	
 			// Add the following plugins
 			$plugins = array(
+				array(
+					'name' 				=> 'Meta Box',
+					'slug' 				=> 'meta-box',
+					'required'			=> true,
+					'force_activation' 	=> false,
+					'force_deactivation'=> false,
+				),
 				array(
 					'name' 				=> 'Regenerate Thumbnails',
 					'slug' 				=> 'regenerate-thumbnails',

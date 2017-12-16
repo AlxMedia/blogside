@@ -4,7 +4,7 @@
 
 	<div class="pad group">
 		
-		<?php if ( ot_get_option('format-icon') != 'off' ): ?>
+		<?php if ( get_theme_mod( 'format-icon', 'on' ) =='on' ): ?>
 			<div class="format-circle"><a href="<?php echo get_post_format_link($format); ?>"><i class="fa"></i></a></div>
 		<?php endif; ?>
 		

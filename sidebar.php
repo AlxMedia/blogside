@@ -11,20 +11,20 @@
 		<div class="sidebar-content">
 		
 			
-			<?php if ( ot_get_option('profile-image') ): ?>
-				<div id="profile-image"><div id="profile-overlay"></div><img src="<?php echo ot_get_option('profile-image'); ?>" alt="" /></div>
+			<?php if ( get_theme_mod('profile-image') ): ?>
+				<div id="profile-image"><div id="profile-overlay"></div><img src="<?php echo get_theme_mod('profile-image'); ?>" alt="" /></div>
 			<?php endif; ?>
 			<div id="profile" class="group">
-				<?php if ( ot_get_option('profile-name') ): ?>
-					<div id="profile-name"><?php echo ot_get_option('profile-name'); ?></div>
+				<?php if ( get_theme_mod('profile-name') ): ?>
+					<div id="profile-name"><?php echo get_theme_mod('profile-name'); ?></div>
 				<?php endif; ?>
-				<?php if ( ot_get_option('profile-description') ): ?>
-					<div id="profile-description"><?php echo ot_get_option('profile-description'); ?></div>
+				<?php if ( get_theme_mod('profile-description') ): ?>
+					<div id="profile-description"><?php echo get_theme_mod('profile-description'); ?></div>
 				<?php endif; ?>
 				<?php alx_social_links() ; ?>
 			</div>
 			
-			<?php if ( ot_get_option( 'post-nav' ) == 's1') { get_template_part('inc/post-nav'); } ?>
+			<?php if ( get_theme_mod( 'post-nav' ) == 's1') { get_template_part('inc/post-nav'); } ?>
 			
 			<?php if( is_page_template('page-templates/child-menu.php') ): ?>
 			<ul class="child-menu group">

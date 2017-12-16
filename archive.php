@@ -14,7 +14,7 @@
 	
 	<?php if ( have_posts() ) : ?>
 			
-		<?php if ( ot_get_option('blog-layout') == 'blog-grid' ) : ?>
+		<?php if ( get_theme_mod('blog-layout') == 'blog-grid' ) : ?>
 			
 			<div class="post-grid group">
 				<?php $i = 1; echo '<div class="post-row">'; while ( have_posts() ): the_post(); ?>
@@ -22,7 +22,7 @@
 				<?php if($i % 2 == 0) { echo '</div><div class="post-row">'; } $i++; endwhile; echo '</div>'; ?>
 			</div><!--/.post-list-->
 			
-		<?php elseif ( ot_get_option('blog-layout') == 'blog-list' ) : ?>
+		<?php elseif ( get_theme_mod('blog-layout') == 'blog-list' ) : ?>
 			
 			<?php while ( have_posts() ): the_post(); ?>
 				<?php get_template_part('content-list'); ?>
