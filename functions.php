@@ -298,8 +298,8 @@ if ( ! function_exists( 'alx_social_links' ) ) {
 				foreach( $links as $item ) {
 					
 					// Build each separate html-section only if set
-					if ( isset($item['title']) && !empty($item['title']) ) 
-						{ $title = 'title="' .esc_attr( $item['title'] ). '"'; } else $title = '';
+					if ( isset($item['social-title']) && !empty($item['social-title']) ) 
+						{ $title = 'title="' .esc_attr( $item['social-title'] ). '"'; } else $title = '';
 					if ( isset($item['social-link']) && !empty($item['social-link']) ) 
 						{ $link = 'href="' .esc_attr( $item['social-link'] ). '"'; } else $link = '';
 					if ( isset($item['social-target']) && !empty($item['social-target']) ) 
@@ -310,7 +310,7 @@ if ( ! function_exists( 'alx_social_links' ) ) {
 						{ $color = 'style="color: ' .$item['social-color']. ';"'; } else $color = '';
 					
 					// Put them together
-					if ( isset($item['title']) && !empty($item['title']) && isset($item['social-icon']) && !empty($item['social-icon']) && ($item['social-icon'] !='fa-') ) {
+					if ( isset($item['social-title']) && !empty($item['social-title']) && isset($item['social-icon']) && !empty($item['social-icon']) && ($item['social-icon'] !='fa-') ) {
 						echo '<li><a rel="nofollow" class="social-tooltip" '.$title.' '.$link.' '.$target.'><i '.$icon.' '.$color.'></i></a></li>';
 					}
 				}
