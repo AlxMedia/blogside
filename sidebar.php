@@ -24,7 +24,7 @@
 				<?php alx_social_links() ; ?>
 			</div>
 			
-			<?php if ( get_theme_mod( 'post-nav' ) == 's1') { get_template_part('inc/post-nav'); } ?>
+			<?php if ( get_theme_mod( 'post-nav', 's1' ) == 's1') { get_template_part('inc/post-nav'); } ?>
 			
 			<?php if( is_page_template('page-templates/child-menu.php') ): ?>
 			<ul class="child-menu group">
