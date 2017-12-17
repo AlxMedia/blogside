@@ -17,7 +17,7 @@
 				
 			</article>
 			
-			<?php if ( get_theme_mod('page-comments') == 'on' ) { comments_template('/comments.php',true); } ?>
+			<?php if ( get_theme_mod( 'page-comments', 'off' ) == 'on' ) { comments_template('/comments.php',true); } ?>
 			
 		<?php endwhile; ?>
 		
