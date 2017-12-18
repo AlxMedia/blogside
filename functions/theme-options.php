@@ -653,7 +653,7 @@ Kirki::add_field( 'alx_blogline', array(
 		'social-icon'	=> array(
 			'type'			=> 'text',
 			'label'			=> esc_attr__( 'Icon Name', 'blogline' ),
-			'description'	=> esc_attr__( 'Font Awesome icons. Ex: fa-facebook', 'blogline' ),
+			'description'	=> esc_attr__( 'Font Awesome icons. Ex: fa-facebook ', 'blogline' ) . ' <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank"><strong>' . esc_attr__( 'View All', 'blogline' ) . ' </strong></a>',
 			'default'		=> 'fa-',
 		),
 		'social-link'	=> array(
