@@ -376,6 +376,15 @@ Kirki::add_field( 'alx_blogline', array(
 		'4'	=> get_template_directory_uri() . '/functions/images/footer-widgets-4.png',
 	),
 ) );
+// Footer: Custom Logo
+Kirki::add_field( 'alx_blogline', array(
+	'type'			=> 'image',
+	'settings'		=> 'footer-logo',
+	'label'			=> esc_attr__( 'Footer Logo', 'blogline' ),
+	'description'	=> esc_attr__( 'Upload your custom logo image', 'blogline' ),
+	'section'		=> 'footer',
+	'default'		=> '',
+) );
 // Footer: Copyright
 Kirki::add_field( 'alx_blogline', array(
 	'type'			=> 'text',
