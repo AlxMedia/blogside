@@ -28,7 +28,7 @@
 				<li><i class="fa fa-clock-o"></i><?php the_time('j M, Y'); ?></li>
 			</ul><!--/.post-meta-->
 			
-			<?php if (get_theme_mod('excerpt-length') != '0'): ?>
+			<?php if (get_theme_mod('excerpt-length','26') != '0'): ?>
 			<div class="entry excerpt">				
 				<?php the_excerpt(); ?>
 			</div><!--/.entry-->
