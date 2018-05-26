@@ -67,7 +67,7 @@
 	<div class="post-format">
 		<div class="image-container">
 			<?php if ( has_post_thumbnail() ) {	
-				the_post_thumbnail('thumb-large'); 
+				the_post_thumbnail('blogline-large'); 
 				$caption = get_post(get_post_thumbnail_id())->post_excerpt;
 				if ( isset($caption) && $caption ) echo '<div class="image-caption">'.$caption.'</div>';
 			} ?>

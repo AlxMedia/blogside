@@ -67,10 +67,10 @@ if ( ! function_exists( 'alx_setup' ) ) {
 		add_theme_support( 'woocommerce' );
 		
 		// Thumbnail sizes
-		add_image_size( 'thumb-small', 200, 200, true );
-		add_image_size( 'thumb-medium', 520, 292, true );
-		add_image_size( 'thumb-large', 720, 404, true );
-		add_image_size( 'thumb-list', 320, 320, true );
+		add_image_size( 'blogline-small', 200, 200, true );
+		add_image_size( 'blogline-medium', 520, 292, true );
+		add_image_size( 'blogline-large', 720, 404, true );
+		add_image_size( 'blogline-list', 320, 320, true );
 
 		// Custom menu areas
 		register_nav_menus( array(
