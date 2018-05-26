@@ -2,7 +2,7 @@
 	<div class="post-inner post-hover">
 		
 		<div class="post-thumbnail">
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 				<?php if ( has_post_thumbnail() ): ?>
 					<?php the_post_thumbnail('thumb-list'); ?>
 				<?php elseif ( get_theme_mod('placeholder') != 'off' ): ?>
@@ -20,7 +20,7 @@
 		<div class="post-content">
 				
 			<h2 class="post-title">
-				<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+				<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 			</h2><!--/.post-title-->
 			
 			<ul class="post-meta group">
