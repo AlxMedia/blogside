@@ -299,6 +299,24 @@ Kirki::add_field( 'alx_theme', array(
 		'content'	=> esc_attr__( 'Below content', 'blogline' ),
 	),
 ) );
+// Header: Search
+Kirki::add_field( 'alx_theme', array(
+	'type'			=> 'switch',
+	'settings'		=> 'header-search',
+	'label'			=> esc_attr__( 'Header Search', 'blogline' ),
+	'description'	=> esc_attr__( 'Header search button', 'blogline' ),
+	'section'		=> 'header',
+	'default'		=> 'on',
+) );
+// Header: Social Links
+Kirki::add_field( 'alx_theme', array(
+	'type'			=> 'switch',
+	'settings'		=> 'header-social',
+	'label'			=> esc_attr__( 'Header Social Links', 'blogline' ),
+	'description'	=> esc_attr__( 'Social link icon buttons', 'blogline' ),
+	'section'		=> 'header',
+	'default'		=> 'on',
+) );
 // Header: Custom Logo
 Kirki::add_field( 'alx_theme', array(
 	'type'			=> 'image',
@@ -368,6 +386,15 @@ Kirki::add_field( 'alx_theme', array(
 		'3'	=> get_template_directory_uri() . '/functions/images/footer-widgets-3.png',
 		'4'	=> get_template_directory_uri() . '/functions/images/footer-widgets-4.png',
 	),
+) );
+// Footer: Social Links
+Kirki::add_field( 'alx_theme', array(
+	'type'			=> 'switch',
+	'settings'		=> 'footer-social',
+	'label'			=> esc_attr__( 'Footer Social Links', 'blogline' ),
+	'description'	=> esc_attr__( 'Social link icon buttons', 'blogline' ),
+	'section'		=> 'footer',
+	'default'		=> 'on',
 ) );
 // Footer: Custom Logo
 Kirki::add_field( 'alx_theme', array(

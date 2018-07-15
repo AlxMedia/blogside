@@ -1,7 +1,7 @@
 /*
 Theme Name: Blogline
 Theme URI: http://alxmedia.se/themes/blogline/
-Version: 1.0.1
+Version: 1.0.2
 Description: <a href="http://alxmedia.se/themes/blogline/">Blogline</a> is a responsive 100% high resolution theme for personal blogs. Unique toggle sidebars give a great browsing and reading experience on both tablet and mobile. The feature list is long: Unlimited accent colors, unlimited widget areas, 0-1 sidebars to the left or right that can be uniquely specified for each page or post, 300px fixed width sidebar, 0-4 footer widget columns, almost zero layout images, related posts and post nav, 5 post formats, good SEO, 3 flexible custom widgets, localisation support, social links, logo upload and many more useful admin panel features.
 Author: Alexander Agnarson
 Author URI: http://alxmedia.se
@@ -564,6 +564,34 @@ box-shadow: 0 0 2px rgba(255,255,255,0.4);
 .search-expand-inner { padding: 0 10px 10px; border: 1px solid #e5e5e5; border-top: 0; }
 .search-expand .themeform input { background: #f2f2f2; width: 100%; border: 1px solid #eee; border-radius: 0; }
 .search-expand .themeform input:focus { border-color: #ccc; }
+
+/*  header : nav mobile
+/* ------------------------------------ */
+#nav-mobile.nav-container { background: #fff; border-top: 3px solid #444; border-bottom: 1px solid #ddd; -webkit-box-shadow: 0 0 6px rgba(0,0,0,0.1); box-shadow: 0 0 6px rgba(0,0,0,0.1); }
+#nav-mobile .nav-toggle { background: transparent; color: #000; }
+#nav-mobile .nav-text { color: #222; }
+
+@media only screen and (max-width: 719px) {
+	
+	/* common */
+	#nav-mobile .nav-wrap { background: #fff; }
+	#nav-mobile .nav { padding: 0 0 20px; }
+	#nav-mobile .nav li a { color: #666; border-bottom: 1px solid #f5f5f5; }	
+	/* level 1 */
+	#nav-mobile .nav li > a:hover,
+	#nav-mobile .nav li.current_page_item > a, 
+	#nav-mobile .nav li.current-menu-item > a,
+	#nav-mobile .nav li.current-post-parent > a { background: #f2f2f2; color: #55acee; }
+	
+}
+
+/* hide and display */
+@media only screen and (min-width: 720px) {
+	.mobile-menu #nav-mobile { display: none; }
+}
+@media only screen and (max-width: 719px) {
+	.mobile-menu #nav-topbar { display: none; } 
+}
 
 /*  header : nav topbar
 /* ------------------------------------ */

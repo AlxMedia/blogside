@@ -21,7 +21,9 @@
 				<?php if ( get_theme_mod('profile-description') ): ?>
 					<div id="profile-description"><?php echo get_theme_mod('profile-description'); ?></div>
 				<?php endif; ?>
-				<?php alx_social_links() ; ?>
+				<?php if ( get_theme_mod( 'header-social', 'on' ) == 'on' ): ?>
+					<?php alx_social_links() ; ?>
+				<?php endif; ?>
 			</div>
 			
 			<?php if ( get_theme_mod( 'post-nav', 's1' ) == 's1') { get_template_part('inc/post-nav'); } ?>
