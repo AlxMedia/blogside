@@ -25,16 +25,6 @@ function blogline_get_meta_box( $meta_boxes ) {
 		'autosave' => false,
 		'fields' => array(
 			array(
-				'id' => $prefix . 'heading',
-				'type' => 'text',
-				'name' => esc_html__( 'Heading', 'blogline' ),
-			),
-			array(
-				'id' => $prefix . 'subheading',
-				'type' => 'text',
-				'name' => esc_html__( 'Subheading', 'blogline' ),
-			),
-			array(
 				'id' => $prefix . 'sidebar_primary',
 				'name' => esc_html__( 'Primary Sidebar', 'blogline' ),
 				'type' => 'select',

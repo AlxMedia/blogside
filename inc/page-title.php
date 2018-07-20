@@ -13,7 +13,7 @@
 		</ul>
 		
 	<?php elseif ( is_page() ): ?>
-		<h2><?php echo blogline_page_title(); ?></h2>
+		<h2><?php the_title(); ?></h2>
 
 	<?php elseif ( is_search() ): ?>
 		<h1>
