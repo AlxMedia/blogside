@@ -82,6 +82,58 @@ if ( ! function_exists( 'blogline_setup' ) ) {
 add_action( 'after_setup_theme', 'blogline_setup' );
 
 
+/*  Custom logo
+/* ------------------------------------ */
+if ( ! function_exists( 'blogline_custom_logo' ) ) {
+	
+	function blogline_custom_logo() {
+		$defaults = array(
+			'height'		=> 120,
+			'width'			=> 400,
+			'flex-height'	=> true,
+			'flex-width'	=> true,
+			'header-text'	=> array( 'site-title', 'site-description' ),
+		);
+		add_theme_support( 'custom-logo', $defaults );
+	}
+
+}	
+add_action( 'after_setup_theme', 'blogline_custom_logo' );
+
+
+/*  Custom header
+/* ------------------------------------ */
+if ( ! function_exists( 'blogline_custom_header' ) ) {
+	
+	function blogline_custom_header() {
+		$args = array(
+			'default-image'	=> false,
+			'default-text'	=> false,
+			'width'			=> 1120,
+			'height'		=> 300,
+			'flex-width'	=> true,
+			'flex-height'	=> true,
+		);
+		add_theme_support( 'custom-header', $args );
+	}
+	
+}
+add_action( 'after_setup_theme', 'blogline_custom_header' );
+
+
+/*  Custom background
+/* ------------------------------------ */
+if ( ! function_exists( 'blogline_custom_background' ) ) {
+	
+	function blogline_custom_background() {
+		$args = array();
+		add_theme_support( 'custom-background', $args );
+	}
+	
+}
+add_action( 'after_setup_theme', 'blogline_custom_background' );
+
+
 /*  Deregister
 /* ------------------------------------ */
 if ( ! function_exists( 'blogline_deregister' ) ) {
@@ -326,10 +378,13 @@ if ( ! function_exists( 'blogline_social_links' ) ) {
 if ( ! function_exists( 'blogline_site_title' ) ) {
 
 	function blogline_site_title() {
-	
+		
+		$custom_logo_id = get_theme_mod( 'custom_logo' );
+		$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+		
 		// Text or image?
-		if ( get_theme_mod('custom-logo') ) {
-			$logo = '<img src="'.esc_url( get_theme_mod('custom-logo') ).'" alt="'.get_bloginfo('name').'">';
+		if ( has_custom_logo() ) {
+			$logo = '<img src="'. esc_url( $logo[0] ) .'" alt="'.get_bloginfo('name').'">';
 		} else {
 			$logo = get_bloginfo('name');
 		}

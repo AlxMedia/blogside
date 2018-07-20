@@ -290,24 +290,6 @@ Kirki::add_field( 'blogline_theme', array(
 	'section'		=> 'header',
 	'default'		=> 'on',
 ) );
-// Header: Custom Logo
-Kirki::add_field( 'blogline_theme', array(
-	'type'			=> 'image',
-	'settings'		=> 'custom-logo',
-	'label'			=> esc_attr__( 'Custom Logo', 'blogline' ),
-	'description'	=> esc_attr__( 'Upload your custom logo image, 120px height recommended', 'blogline' ),
-	'section'		=> 'header',
-	'default'		=> '',
-) );
-// Header: Site Description
-Kirki::add_field( 'blogline_theme', array(
-	'type'			=> 'switch',
-	'settings'		=> 'site-description',
-	'label'			=> esc_attr__( 'Site Description', 'blogline' ),
-	'description'	=> esc_attr__( 'The description that appears next to your logo', 'blogline' ),
-	'section'		=> 'header',
-	'default'		=> 'on',
-) );
 // Header: Profile Avatar
 Kirki::add_field( 'blogline_theme', array(
 	'type'			=> 'image',
@@ -757,21 +739,5 @@ Kirki::add_field( 'blogline_theme', array(
 		'min'	=> '0',
 		'max'	=> '15',
 		'step'	=> '1',
-	),
-) );
-// Styling: Body Background
-Kirki::add_field( 'blogline_theme', array(
-	'type'			=> 'background',
-	'settings'		=> 'body-background',
-	'label'			=> esc_attr__( 'Body Background', 'blogline' ),
-	'description'	=> esc_attr__( 'Set background color and/or upload your own background image', 'blogline' ),
-	'section'		=> 'styling',
-	'default'     => array(
-		'background-color'      => '',
-		'background-image'      => '',
-		'background-repeat'     => 'no-repeat',
-		'background-position'   => 'center center',
-		'background-size'       => 'cover',
-		'background-attachment' => 'fixed',
 	),
 ) );
