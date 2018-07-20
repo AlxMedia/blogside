@@ -1,6 +1,6 @@
 <?php 
-	$sidebar = alx_sidebar_primary();
-	$layout = alx_layout_class();
+	$sidebar = blogline_sidebar_primary();
+	$layout = blogline_layout_class();
 	if ( $layout != 'col-1c'):
 ?>
 
@@ -22,7 +22,7 @@
 					<div id="profile-description"><?php echo get_theme_mod('profile-description'); ?></div>
 				<?php endif; ?>
 				<?php if ( get_theme_mod( 'header-social', 'on' ) == 'on' ): ?>
-					<?php alx_social_links() ; ?>
+					<?php blogline_social_links() ; ?>
 				<?php endif; ?>
 			</div>
 			

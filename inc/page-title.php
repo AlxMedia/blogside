@@ -2,7 +2,7 @@
 	<div class="pad group">
 
 	<?php if ( is_home() ) : ?>
-		<h2><?php echo alx_blog_title(); ?></h2>
+		<h2><?php echo blogline_blog_title(); ?></h2>
 		
 	<?php elseif ( is_single() ): ?>
 		<ul class="meta-single group">
@@ -13,7 +13,7 @@
 		</ul>
 		
 	<?php elseif ( is_page() ): ?>
-		<h2><?php echo alx_page_title(); ?></h2>
+		<h2><?php echo blogline_page_title(); ?></h2>
 
 	<?php elseif ( is_search() ): ?>
 		<h1>

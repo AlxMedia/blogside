@@ -63,7 +63,7 @@
 		<div class="container-inner group">
 
 			<div class="group pad">
-				<?php echo alx_site_title(); ?>
+				<?php echo blogline_site_title(); ?>
 				<?php if ( get_theme_mod( 'site-description', 'on' ) == 'on' ): ?><p class="site-description"><?php bloginfo( 'description' ); ?></p><?php endif; ?>
 			</div>
 
