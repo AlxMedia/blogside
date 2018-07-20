@@ -14,7 +14,7 @@
 		
 		<ul class="post-meta group">
 			<li><?php the_category(' / '); ?></li>
-			<li><i class="fa fa-clock-o"></i><?php the_time('j M, Y'); ?></li>
+			<li><i class="fa fa-clock-o"></i><?php the_time( get_option('date_format') ); ?></li>
 			<?php if ( comments_open() ): ?><li><a href="<?php comments_link(); ?>"><i class="fa fa-comment"></i><?php comments_number( '0', '1', '%' ); ?></a></li><?php endif; ?>
 		</ul><!--/.post-meta-->
 		

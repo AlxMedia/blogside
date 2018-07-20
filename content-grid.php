@@ -25,7 +25,7 @@
 			
 			<ul class="post-meta group">
 				<li><?php the_category(' / '); ?></li>
-				<li><i class="fa fa-clock-o"></i><?php the_time('j M, Y'); ?></li>
+				<li><i class="fa fa-clock-o"></i><?php the_time( get_option('date_format') ); ?></li>
 			</ul><!--/.post-meta-->
 			
 			<?php if (get_theme_mod('excerpt-length','26') != '0'): ?>

@@ -22,7 +22,7 @@
 		</h3><!--/.post-title-->
 		
 		<ul class="post-meta group">
-			<li><?php the_time('j M, Y'); ?></li>
+			<li><?php the_time( get_option('date_format') ); ?></li>
 		</ul><!--/.post-meta-->
 		
 
