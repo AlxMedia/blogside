@@ -15,7 +15,6 @@ Kirki::add_config( 'blogline', array(
 Kirki::add_panel( 'options', array(
     'priority'    => 10,
     'title'       => esc_attr__( 'Theme Options', 'blogline' ),
-    'description' => esc_attr__( '', 'blogline' ),
 ) );
 
 /*  Add Sections
@@ -23,49 +22,41 @@ Kirki::add_panel( 'options', array(
 Kirki::add_section( 'general', array(
     'priority'    => 10,
     'title'       => esc_attr__( 'General', 'blogline' ),
-    'description' => esc_attr__( '', 'blogline' ),
 	'panel'       => 'options',
 ) );
 Kirki::add_section( 'blog', array(
     'priority'    => 20,
     'title'       => esc_attr__( 'Blog', 'blogline' ),
-    'description' => esc_attr__( '', 'blogline' ),
 	'panel'       => 'options',
 ) );
 Kirki::add_section( 'header', array(
     'priority'    => 30,
     'title'       => esc_attr__( 'Header', 'blogline' ),
-    'description' => esc_attr__( '', 'blogline' ),
 	'panel'       => 'options',
 ) );
 Kirki::add_section( 'footer', array(
     'priority'    => 40,
     'title'       => esc_attr__( 'Footer', 'blogline' ),
-    'description' => esc_attr__( '', 'blogline' ),
 	'panel'       => 'options',
 ) );
 Kirki::add_section( 'layout', array(
     'priority'    => 50,
     'title'       => esc_attr__( 'Layout', 'blogline' ),
-    'description' => esc_attr__( '', 'blogline' ),
 	'panel'       => 'options',
 ) );
 Kirki::add_section( 'sidebars', array(
     'priority'    => 60,
     'title'       => esc_attr__( 'Sidebars', 'blogline' ),
-    'description' => esc_attr__( '', 'blogline' ),
 	'panel'       => 'options',
 ) );
 Kirki::add_section( 'social', array(
     'priority'    => 70,
     'title'       => esc_attr__( 'Social Links', 'blogline' ),
-    'description' => esc_attr__( '', 'blogline' ),
 	'panel'       => 'options',
 ) );
 Kirki::add_section( 'styling', array(
     'priority'    => 80,
     'title'       => esc_attr__( 'Styling', 'blogline' ),
-    'description' => esc_attr__( '', 'blogline' ),
 	'panel'       => 'options',
 ) );
 
@@ -113,7 +104,6 @@ Kirki::add_field( 'blogline_theme', array(
 	'type'			=> 'radio',
 	'settings'		=> 'blog-layout',
 	'label'			=> esc_attr__( 'Blog Layout', 'blogline' ),
-	'description'	=> esc_attr__( '', 'blogline' ),
 	'section'		=> 'blog',
 	'default'		=> 'blog-standard',
 	'choices'		=> array(
@@ -655,7 +645,6 @@ Kirki::add_field( 'blogline_theme', array(
 		'social-target'	=> array(
 			'type'			=> 'checkbox',
 			'label'			=> esc_attr__( 'Open in new window', 'blogline' ),
-			'description'	=> esc_attr__( '', 'blogline' ),
 			'default'		=> false,
 		),
 	)
@@ -723,7 +712,6 @@ Kirki::add_field( 'blogline_theme', array(
 	'type'			=> 'color',
 	'settings'		=> 'color-1',
 	'label'			=> esc_attr__( 'Primary Color', 'blogline' ),
-	'description'	=> esc_attr__( '', 'blogline' ),
 	'section'		=> 'styling',
 	'default'		=> '#55acee',
 ) );
