@@ -81,6 +81,24 @@ Kirki::add_field( 'blogline_theme', array(
 	'section'		=> 'general',
 	'default'		=> 'on',
 ) );
+// General: Post Comments
+Kirki::add_field( 'alx_theme', array(
+	'type'			=> 'switch',
+	'settings'		=> 'post-comments',
+	'label'			=> esc_attr__( 'Post Comments', 'blogline' ),
+	'description'	=> esc_attr__( 'Comments on posts', 'blogline' ),
+	'section'		=> 'general',
+	'default'		=> 'on',
+) );
+// General: Page Comments
+Kirki::add_field( 'alx_theme', array(
+	'type'			=> 'switch',
+	'settings'		=> 'page-comments',
+	'label'			=> esc_attr__( 'Page Comments', 'blogline' ),
+	'description'	=> esc_attr__( 'Comments on pages', 'blogline' ),
+	'section'		=> 'general',
+	'default'		=> 'off',
+) );
 // General: Recommended Plugins
 Kirki::add_field( 'blogline_theme', array(
 	'type'			=> 'switch',
