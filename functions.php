@@ -65,6 +65,9 @@ if ( ! function_exists( 'blogline_setup' ) ) {
 		// Declare WooCommerce support
 		add_theme_support( 'woocommerce' );
 		
+		// Enable support for selective refresh of widgets in customizer
+		add_theme_support( 'customize-selective-refresh-widgets' );
+		
 		// Thumbnail sizes
 		add_image_size( 'blogline-small', 200, 200, true );
 		add_image_size( 'blogline-medium', 520, 292, true );
@@ -73,8 +76,8 @@ if ( ! function_exists( 'blogline_setup' ) ) {
 
 		// Custom menu areas
 		register_nav_menus( array(
-			'mobile' => 'Mobile',
-			'topbar' => 'Topbar',
+			'mobile' 	=> esc_html__( 'Mobile', 'blogline' ),
+			'topbar' 	=> esc_html__( 'Topbar', 'blogline' ),
 		) );
 	}
 	
@@ -143,7 +146,7 @@ if ( ! function_exists( 'blogline_deregister' ) ) {
 	}
 	
 }
-add_action( 'wp_print_styles', 'blogline_deregister', 100 );
+add_action( 'wp_enqueue_scripts', 'blogline_deregister', 100 );
 
 
 /*  Register sidebars
@@ -151,18 +154,19 @@ add_action( 'wp_print_styles', 'blogline_deregister', 100 );
 if ( ! function_exists( 'blogline_sidebars' ) ) {
 
 	function blogline_sidebars()	{
-		register_sidebar(array( 'name' => 'Primary','id' => 'primary','description' => "Normal full width sidebar", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>'));
-		if ( get_theme_mod('footer-ads') == 'on' ) { register_sidebar(array( 'name' => 'Footer Ads','id' => 'footer-ads', 'description' => "Footer ads area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		register_sidebar(array( 'name' => esc_html__('Primary','blogline'),'id' => 'primary','description' => esc_html__("Normal full width sidebar","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>'));
 		
-		if ( get_theme_mod('frontpage-widgets-top') == 'on' ) { register_sidebar(array( 'name' => 'Frontpage Top 1','id' => 'frontpage-top-1', 'description' => "Frontpage area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( get_theme_mod('frontpage-widgets-top') == 'on' ) { register_sidebar(array( 'name' => 'Frontpage Top 2','id' => 'frontpage-top-2', 'description' => "Frontpage area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( get_theme_mod('frontpage-widgets-bottom') == 'on' ) { register_sidebar(array( 'name' => 'Frontpage Bottom 1','id' => 'frontpage-bottom-1', 'description' => "Frontpage area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( get_theme_mod('frontpage-widgets-bottom') == 'on' ) { register_sidebar(array( 'name' => 'Frontpage Bottom 2','id' => 'frontpage-bottom-2', 'description' => "Frontpage area", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('footer-ads') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Footer Ads',"blogline"),'id' => 'footer-ads', 'description' => esc_html__("Footer ads area","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
 		
-		if ( get_theme_mod('footer-widgets') >= '1' ) { register_sidebar(array( 'name' => 'Footer 1','id' => 'footer-1', 'description' => "Widgetized footer", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( get_theme_mod('footer-widgets') >= '2' ) { register_sidebar(array( 'name' => 'Footer 2','id' => 'footer-2', 'description' => "Widgetized footer", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( get_theme_mod('footer-widgets') >= '3' ) { register_sidebar(array( 'name' => 'Footer 3','id' => 'footer-3', 'description' => "Widgetized footer", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( get_theme_mod('footer-widgets') >= '4' ) { register_sidebar(array( 'name' => 'Footer 4','id' => 'footer-4', 'description' => "Widgetized footer", 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }	
+		if ( get_theme_mod('frontpage-widgets-top') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Frontpage Top 1','blogline'),'id' => 'frontpage-top-1', 'description' => esc_html__("Frontpage area","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('frontpage-widgets-top') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Frontpage Top 2','blogline'),'id' => 'frontpage-top-2', 'description' => esc_html__("Frontpage area","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('frontpage-widgets-bottom') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Frontpage Bottom 1','blogline'),'id' => 'frontpage-bottom-1', 'description' => esc_html__("Frontpage area","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('frontpage-widgets-bottom') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Frontpage Bottom 2','blogline'),'id' => 'frontpage-bottom-2', 'description' => esc_html__("Frontpage area","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		
+		if ( get_theme_mod('footer-widgets') >= '1' ) { register_sidebar(array( 'name' => esc_html__('Footer 1','blogline'),'id' => 'footer-1', 'description' => esc_html__("Widgetized footer","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('footer-widgets') >= '2' ) { register_sidebar(array( 'name' => esc_html__('Footer 2','blogline'),'id' => 'footer-2', 'description' => esc_html__("Widgetized footer","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('footer-widgets') >= '3' ) { register_sidebar(array( 'name' => esc_html__('Footer 3','blogline'),'id' => 'footer-3', 'description' => esc_html__("Widgetized footer","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('footer-widgets') >= '4' ) { register_sidebar(array( 'name' => esc_html__('Footer 4','blogline'),'id' => 'footer-4', 'description' => esc_html__("Widgetized footer","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
 	}
 	
 }
@@ -199,29 +203,6 @@ if ( ! function_exists( 'blogline_styles' ) ) {
 add_action( 'wp_enqueue_scripts', 'blogline_styles' );
 
 
-/*  Register custom sidebars
-/* ------------------------------------ */
-if ( ! function_exists( 'blogline_custom_sidebars' ) ) {
-
-	function blogline_custom_sidebars() {
-		if ( !get_theme_mod('sidebar-areas') =='' ) {
-			
-			$sidebars = get_theme_mod('sidebar-areas', array());
-			
-			if ( !empty( $sidebars ) ) {
-				foreach( $sidebars as $sidebar ) {
-					if ( isset($sidebar['title']) && !empty($sidebar['title']) && isset($sidebar['id']) && !empty($sidebar['id']) && ($sidebar['id'] !='sidebar-') ) {
-						register_sidebar(array('name' => ''.esc_attr( $sidebar['title'] ).'','id' => ''.esc_attr( strtolower($sidebar['id']) ).'','before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>'));
-					}
-				}
-			}
-		}
-	}
-	
-}
-add_action( 'widgets_init', 'blogline_custom_sidebars' );
-
-
 /* ------------------------------------------------------------------------- *
  *  Template functions
 /* ------------------------------------------------------------------------- */	
@@ -245,18 +226,18 @@ if ( ! function_exists( 'blogline_layout_class' ) ) {
 			// Get if set and not set to inherit
 			if ( isset($meta) && !empty($meta) && $meta != 'inherit' ) { $layout = $meta; }
 			// Else check for page-global / single-global
-			elseif ( is_single() && ( get_theme_mod('layout-single') !='inherit' ) ) $layout = get_theme_mod('layout-single',''.$default.'');
-			elseif ( is_page() && ( get_theme_mod('layout-page') !='inherit' ) ) $layout = get_theme_mod('layout-page',''.$default.'');
+			elseif ( is_single() && ( get_theme_mod('layout-single','inherit') !='inherit' ) ) $layout = get_theme_mod('layout-single',''.$default.'');
+			elseif ( is_page() && ( get_theme_mod('layout-page','inherit') !='inherit' ) ) $layout = get_theme_mod('layout-page',''.$default.'');
 			// Else get global option
 			else $layout = get_theme_mod('layout-global',''.$default.'');
 		}
 		
 		// Set layout based on page
-		elseif ( is_home() && ( get_theme_mod('layout-home') !='inherit' ) ) $layout = get_theme_mod('layout-home',''.$default.'');
-		elseif ( is_category() && ( get_theme_mod('layout-archive-category') !='inherit' ) ) $layout = get_theme_mod('layout-archive-category',''.$default.'');
-		elseif ( is_archive() && ( get_theme_mod('layout-archive') !='inherit' ) ) $layout = get_theme_mod('layout-archive',''.$default.'');
-		elseif ( is_search() && ( get_theme_mod('layout-search') !='inherit' ) ) $layout = get_theme_mod('layout-search',''.$default.'');
-		elseif ( is_404() && ( get_theme_mod('layout-404') !='inherit' ) ) $layout = get_theme_mod('layout-404',''.$default.'');
+		elseif ( is_home() && ( get_theme_mod('layout-home','inherit') !='inherit' ) ) $layout = get_theme_mod('layout-home',''.$default.'');
+		elseif ( is_category() && ( get_theme_mod('layout-archive-category','inherit') !='inherit' ) ) $layout = get_theme_mod('layout-archive-category',''.$default.'');
+		elseif ( is_archive() && ( get_theme_mod('layout-archive','inherit') !='inherit' ) ) $layout = get_theme_mod('layout-archive',''.$default.'');
+		elseif ( is_search() && ( get_theme_mod('layout-search','inherit') !='inherit' ) ) $layout = get_theme_mod('layout-search',''.$default.'');
+		elseif ( is_404() && ( get_theme_mod('layout-404','inherit') !='inherit' ) ) $layout = get_theme_mod('layout-404',''.$default.'');
 		
 		// Global option
 		else $layout = get_theme_mod('layout-global',''.$default.'');
@@ -296,7 +277,7 @@ if ( ! function_exists( 'blogline_sidebar_primary' ) ) {
 		}
 
 		// Return sidebar
-		return $sidebar;
+		return esc_attr( $sidebar );
 	}
 	
 }
@@ -330,7 +311,7 @@ if ( ! function_exists( 'blogline_sidebar_secondary' ) ) {
 		}
 
 		// Return sidebar
-		return $sidebar;
+		return esc_attr( $sidebar );
 	}
 	
 }
@@ -383,9 +364,9 @@ if ( ! function_exists( 'blogline_site_title' ) ) {
 		
 		// Text or image?
 		if ( has_custom_logo() ) {
-			$logo = '<img src="'. esc_url( $logo[0] ) .'" alt="'.get_bloginfo('name').'">';
+			$logo = '<img src="'. esc_url( $logo[0] ) .'" alt="'.esc_attr( get_bloginfo('name')).'">';;
 		} else {
-			$logo = get_bloginfo('name');
+			$logo = esc_html( get_bloginfo('name') );
 		}
 		
 		$link = '<a href="'.esc_url( home_url('/') ).'" rel="home">'.$logo.'</a>';
@@ -408,12 +389,12 @@ if ( ! function_exists( 'blogline_blog_title' ) ) {
 
 	function blogline_blog_title() {
 		global $post;
-		$heading = esc_attr( get_theme_mod('blog-heading') );
-		$subheading = esc_attr( get_theme_mod('blog-subheading') );
-		if($heading) { 
+		$heading = esc_html( get_theme_mod('blog-heading') );
+		$subheading = esc_html( get_theme_mod('blog-subheading') );
+		if($heading) {
 			$title = $heading;
 		} else {
-			$title = get_bloginfo('name');
+			$title = esc_html( get_bloginfo('name') );
 		}
 		if($subheading) {
 			$title = $title.' <span>'.$subheading.'</span>';
@@ -506,8 +487,8 @@ if ( ! function_exists( 'blogline_get_featured_post_ids' ) ) {
 
 	function blogline_get_featured_post_ids() {
 		$args = array(
-			'category'		=> get_theme_mod('featured-category',''),
-			'numberposts'	=> get_theme_mod('featured-posts-count','3')
+			'category'		=> absint( get_theme_mod('featured-category','') ),
+			'numberposts'	=> absint( get_theme_mod('featured-posts-count','3')),
 		);
 		$posts = get_posts($args);
 		if ( !$posts ) return false;
@@ -517,25 +498,6 @@ if ( ! function_exists( 'blogline_get_featured_post_ids' ) ) {
 	}
 	
 }
-
-
-/* ------------------------------------------------------------------------- *
- *  Admin panel functions
-/* ------------------------------------------------------------------------- */		
-
-/*  Post formats script
-/* ------------------------------------ */
-if ( ! function_exists( 'blogline_post_formats_script' ) ) {
-
-	function blogline_post_formats_script( $hook ) {
-		// Only load on posts, pages
-		if ( !in_array($hook, array('post.php','post-new.php')) )
-			return;
-		wp_enqueue_script('post-formats', get_template_directory_uri() . '/functions/js/post-formats.js', array( 'jquery' ));
-	}
-	
-}
-add_action( 'admin_enqueue_scripts', 'blogline_post_formats_script');
 
 
 /* ------------------------------------------------------------------------- *
@@ -565,6 +527,9 @@ add_filter( 'body_class', 'blogline_body_class' );
 if ( ! function_exists( 'blogline_excerpt_more' ) ) {
 
 	function blogline_excerpt_more( $more ) {
+		if ( is_admin() ) {
+			return $more;
+		}
 		return '&#46;&#46;&#46;';
 	}
 	
@@ -577,7 +542,16 @@ add_filter( 'excerpt_more', 'blogline_excerpt_more' );
 if ( ! function_exists( 'blogline_excerpt_length' ) ) {
 
 	function blogline_excerpt_length( $length ) {
-		return get_theme_mod('excerpt-length','26',$length);
+		if ( is_admin() ) {
+			return $length;
+		}
+
+		$new_length = $length;
+		$custom_length = get_theme_mod( 'excerpt-length', '26' );
+		if ( absint( $custom_length ) > 0 ) {
+			$new_length = absint( $custom_length );
+		}
+		return $new_length;
 	}
 	
 }
@@ -614,29 +588,6 @@ if ( ! function_exists( 'blogline_embed_html_jp' ) ) {
 
 }
 add_filter( 'video_embed_html', 'blogline_embed_html_jp' );
-
-
-/*  Upscale cropped thumbnails
-/* ------------------------------------ */
-if ( ! function_exists( 'blogline_thumbnail_upscale' ) ) {
-
-	function blogline_thumbnail_upscale( $default, $orig_w, $orig_h, $new_w, $new_h, $crop ){
-		if ( !$crop ) return null; // let the wordpress default function handle this
-
-		$aspect_ratio = $orig_w / $orig_h;
-		$size_ratio = max($new_w / $orig_w, $new_h / $orig_h);
-
-		$crop_w = round($new_w / $size_ratio);
-		$crop_h = round($new_h / $size_ratio);
-
-		$s_x = floor( ($orig_w - $crop_w) / 2 );
-		$s_y = floor( ($orig_h - $crop_h) / 2 );
-
-		return array( 0, 0, (int) $s_x, (int) $s_y, (int) $new_w, (int) $new_h, (int) $crop_w, (int) $crop_h );
-	}
-	
-}
-add_filter( 'image_resize_dimensions', 'blogline_thumbnail_upscale', 10, 6 );
 
 
 /* ------------------------------------------------------------------------- *
@@ -679,6 +630,36 @@ if ( ! function_exists( 'blogline_html_js_class' ) ) {
 add_action( 'wp_head', 'blogline_html_js_class', 1 );
 
 
+/*  Script for no-js / js class
+/* ------------------------------------ */
+if ( ! function_exists( 'blogline_html_js_class' ) ) {
+
+	function blogline_html_js_class () {
+		echo '<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>'. "\n";
+	}
+	
+}
+add_action( 'wp_head', 'blogline_html_js_class', 1 );
+
+
+/*  Admin panel css
+/* ------------------------------------ */
+if ( ! function_exists( 'blogline_admin_panel_css' ) ) {
+	
+	function blogline_admin_panel_css() {
+		global $pagenow;
+		if ( 'post.php' === $pagenow || 'post-new.php' === $pagenow ) {
+			echo '<style>
+				.rwmb-image-select { width: auto!important; height: auto!important; }
+				.rwmb-text { width: 100%; }
+			</style>';
+		}
+	}
+
+}
+add_action( 'admin_head', 'blogline_admin_panel_css' );
+
+
 /*  TGM plugin activation
 /* ------------------------------------ */
 if ( ! function_exists( 'blogline_plugins' ) ) {
@@ -688,39 +669,24 @@ if ( ! function_exists( 'blogline_plugins' ) ) {
 			// Add the following plugins
 			$plugins = array(
 				array(
-					'name' 				=> 'Alx Extensions',
-					'slug' 				=> 'alx-extensions',
-					'required'			=> false,
-					'force_activation' 	=> false,
-					'force_deactivation'=> false,
+					'name' => esc_html__( 'Alx Extensions', 'blogline' ),
+					'slug' => 'alx-extensions',
 				),
 				array(
-					'name' 				=> 'Meta Box',
-					'slug' 				=> 'meta-box',
-					'required'			=> false,
-					'force_activation' 	=> false,
-					'force_deactivation'=> false,
+					'name' => esc_html__( 'Meta Box', 'blogline' ),
+					'slug' => 'meta-box',
 				),
 				array(
-					'name' 				=> 'Regenerate Thumbnails',
-					'slug' 				=> 'regenerate-thumbnails',
-					'required'			=> false,
-					'force_activation' 	=> false,
-					'force_deactivation'=> false,
+					'name' => esc_html__( 'Regenerate Thumbnails', 'blogline' ),
+					'slug' => 'regenerate-thumbnails',
 				),
 				array(
-					'name' 				=> 'WP-PageNavi',
-					'slug' 				=> 'wp-pagenavi',
-					'required'			=> false,
-					'force_activation' 	=> false,
-					'force_deactivation'=> false,
+					'name' => esc_html__( 'WP-PageNavi', 'blogline' ),
+					'slug' => 'wp-pagenavi',
 				),
 				array(
-					'name' 				=> 'Responsive Lightbox',
-					'slug' 				=> 'responsive-lightbox',
-					'required'			=> false,
-					'force_activation' 	=> false,
-					'force_deactivation'=> false,
+					'name' => esc_html__( 'Responsive Lightbox', 'blogline' ),
+					'slug' => 'responsive-lightbox',
 				)
 			);	
 			tgmpa( $plugins );
@@ -745,17 +711,6 @@ remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wr
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 add_action('woocommerce_before_main_content', 'blogline_wc_wrapper_start', 10);
 add_action('woocommerce_after_main_content', 'blogline_wc_wrapper_end', 10);
-
-
-/*  Admin panel css
-/* ------------------------------------ */
-function blogline_admin_panel_css() {
-	echo '<style>
-.rwmb-image-select { width: auto!important; height: auto!important; }
-.rwmb-text { width: 100%; }
-	</style>';
-}
-add_action('admin_head', 'blogline_admin_panel_css');
 
 
 /* ------------------------------------------------------------------------- *
