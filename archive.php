@@ -4,12 +4,8 @@
 		
 	<?php get_template_part('inc/page-title'); ?>
 			
-	<?php if ((category_description() != '') && !is_paged()) : ?>
-		<div class="pad pad-top group">
-			<div class="notebox">
-				<?php echo category_description(); ?>
-			</div>
-		</div><!--/.pad-->
+	<?php if ( ! is_paged() ) : ?>
+		<?php the_archive_description( '<div class="pad pad-top group"><div class="notebox">', '</div></div>' ); ?>
 	<?php endif; ?>
 	
 	<?php if ( have_posts() ) : ?>

@@ -81,42 +81,6 @@ function blogline_get_meta_box( $meta_boxes ) {
 			),
 		),
 	);
-
-/*  Format: audio
-/* ------------------------------------ */		
-	$meta_boxes[] = array(
-		'id' => 'format-audio',
-		'title' => esc_html__( 'Format: Audio', 'blogline' ),
-		'post_types' => array( 'post' ),
-		'context' => 'advanced',
-		'priority' => 'high',
-		'autosave' => false,
-		'fields' => array(
-			array(
-				'id' => $prefix . 'audio_url',
-				'type' => 'text',
-				'name' => esc_html__( 'Audio URL', 'blogline' ),
-			),
-		),
-	);
-
-/*  Format: video
-/* ------------------------------------ */
-	$meta_boxes[] = array(
-		'id' => 'format-video',
-		'title' => esc_html__( 'Format: Video', 'blogline' ),
-		'post_types' => array( 'post' ),
-		'context' => 'advanced',
-		'priority' => 'high',
-		'autosave' => false,
-		'fields' => array(
-			array(
-				'id' => $prefix . 'video_url',
-				'type' => 'text',
-				'name' => esc_html__( 'Video URL', 'blogline' ),
-			),
-		),
-	);
 	
 	return $meta_boxes;
 }
