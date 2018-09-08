@@ -2,7 +2,7 @@
 	<div class="post-inner post-hover">
 		
 		<div class="post-thumbnail">
-			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+			<a href="<?php the_permalink(); ?>">
 				<?php if ( has_post_thumbnail() ): ?>
 					<?php the_post_thumbnail('blogline-medium'); ?>
 				<?php elseif ( get_theme_mod('placeholder') != 'off' ): ?>
@@ -18,7 +18,7 @@
 		</div><!--/.post-thumbnail-->
 		
 		<h3 class="post-title">
-			<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 		</h3><!--/.post-title-->
 		
 		<ul class="post-meta group">

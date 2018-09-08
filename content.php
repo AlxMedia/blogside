@@ -9,7 +9,7 @@
 		<?php endif; ?>
 		
 		<h2 class="post-title">
-			<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
 		</h2><!--/.post-title-->
 		
 		<ul class="post-meta group">
