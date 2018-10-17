@@ -63,6 +63,15 @@ Screenshot images
 License: CC0 1.0 Universal (CC0 1.0)
 Source: http://pixabay.com/
 
+Content images
+1. ID 677770 - https://pixabay.com/en/person-male-man-looking-sitting-677770/ - CC0 1.0 Universal (CC0 1.0)
+2. ID 642118 - https://pixabay.com/en/woman-photo-taking-picture-642118/ - CC0 1.0 Universal (CC0 1.0)
+3. ID 569349 - https://pixabay.com/en/cafe-man-sitting-people-male-569349/ - CC0 1.0 Universal (CC0 1.0)
+4. ID 336606 - https://pixabay.com/en/vw-camper-volkswagen-vw-car-336606/ - CC0 1.0 Universal (CC0 1.0)
+
+Sidebar images
+1. ID 944262 - https://pixabay.com/en/guitar-beautiful-music-instrument-944262/ - CC0 1.0 Universal (CC0 1.0)
+
 == Changelog ==
 
 = 1.0.4 - 2018-09-08 =
