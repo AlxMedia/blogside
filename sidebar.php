@@ -1,12 +1,12 @@
 <?php 
-	$sidebar = blogline_sidebar_primary();
-	$layout = blogline_layout_class();
+	$sidebar = blogside_sidebar_primary();
+	$layout = blogside_layout_class();
 	if ( $layout != 'col-1c'):
 ?>
 
 	<div class="sidebar s1">
 		
-		<a class="sidebar-toggle" title="<?php esc_attr_e('Expand Sidebar','blogline'); ?>"><i class="fa icon-sidebar-toggle"></i></a>
+		<a class="sidebar-toggle" title="<?php esc_attr_e('Expand Sidebar','blogside'); ?>"><i class="fa icon-sidebar-toggle"></i></a>
 		
 		<div class="sidebar-content">
 		
@@ -22,7 +22,7 @@
 					<div id="profile-description"><?php echo get_theme_mod('profile-description'); ?></div>
 				<?php endif; ?>
 				<?php if ( get_theme_mod( 'header-social', 'on' ) == 'on' ): ?>
-					<?php blogline_social_links() ; ?>
+					<?php blogside_social_links() ; ?>
 				<?php endif; ?>
 			</div>
 			

@@ -4,7 +4,7 @@
 		<div class="post-thumbnail">
 			<a href="<?php the_permalink(); ?>">
 				<?php if ( has_post_thumbnail() ): ?>
-					<?php the_post_thumbnail('blogline-list'); ?>
+					<?php the_post_thumbnail('blogside-list'); ?>
 				<?php elseif ( get_theme_mod('placeholder') != 'off' ): ?>
 					<img src="<?php echo get_template_directory_uri(); ?>/img/thumb-list.png" alt="<?php the_title_attribute(); ?>" />
 				<?php endif; ?>

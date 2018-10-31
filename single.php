@@ -20,7 +20,7 @@
 				
 				<div class="entry">	
 					<?php the_content(); ?>
-					<?php wp_link_pages(array('before'=>'<div class="post-pages">'.esc_html__('Pages:','blogline'),'after'=>'</div>')); ?>
+					<?php wp_link_pages(array('before'=>'<div class="post-pages">'.esc_html__('Pages:','blogside'),'after'=>'</div>')); ?>
 					<div class="clear"></div>				
 				</div><!--/.entry-->
 				
@@ -29,7 +29,7 @@
 		
 		<div class="clear"></div>
 		
-		<?php the_tags('<p class="post-tags"><span>'.esc_html__('Tags:','blogline').'</span> ','','</p>'); ?>
+		<?php the_tags('<p class="post-tags"><span>'.esc_html__('Tags:','blogside').'</span> ','','</p>'); ?>
 		
 		<?php do_action( 'alx_ext_sharrre' ); ?>
 		

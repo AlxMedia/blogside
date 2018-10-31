@@ -64,7 +64,7 @@
 			
 			<?php if ( get_header_image() == '' ) : ?>
 				<div class="group pad">
-					<?php echo blogline_site_title(); ?>
+					<?php echo blogside_site_title(); ?>
 					<?php if ( display_header_text() == true ): ?>
 						<p class="site-description"><?php bloginfo( 'description' ); ?></p>
 					<?php endif; ?>

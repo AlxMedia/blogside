@@ -11,7 +11,7 @@
 		</div>
 		
 		<div class="entry">
-			<p><?php esc_html_e( 'The page you are trying to reach does not exist, or has been moved. Please use the menus or the search box to find what you are looking for.', 'blogline' ); ?></p>
+			<p><?php esc_html_e( 'The page you are trying to reach does not exist, or has been moved. Please use the menus or the search box to find what you are looking for.', 'blogside' ); ?></p>
 		</div>
 		
 	</div><!--/.pad-->

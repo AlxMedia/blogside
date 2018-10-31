@@ -1,25 +1,25 @@
 <?php
 /*
-	BloglineTabs Widget
+	BlogsideTabs Widget
 
 	License: GNU General Public License v3.0
 	License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 	Copyright: (c) 2013 Alexander "Alx" Agnarson - http://alxmedia.se
 
-		@package BloglineTabs
+		@package BlogsideTabs
 		@version 1.0
 */
 
-class BloglineTabs extends WP_Widget {
+class BlogsideTabs extends WP_Widget {
 
 /*  Constructor
 /* ------------------------------------ */
 	function __construct() {
-		parent::__construct( false, esc_html__( 'Alx Tabs', 'blogline' ), array('description' => esc_html__('List posts, comments, and/or tags with or without tabs.', 'blogline' ), 'classname' => 'widget_blogline_tabs', 'customize_selective_refresh' => true ) );
+		parent::__construct( false, esc_html__( 'Alx Tabs', 'blogside' ), array('description' => esc_html__('List posts, comments, and/or tags with or without tabs.', 'blogside' ), 'classname' => 'widget_blogside_tabs', 'customize_selective_refresh' => true ) );
 	}
 
-	public function blogline_get_defaults() {
+	public function blogside_get_defaults() {
 		return array(
 			'title'				=> '',
 			'tabs_category'		=> 1,
@@ -54,10 +54,10 @@ class BloglineTabs extends WP_Widget {
 	private function _create_tabs($tabs,$count) {
 		// Borrowed from Jermaine Maree, thanks mate!
 		$titles = array(
-			'recent'	=> esc_html__('Recent Posts','blogline'),
-			'popular'	=> esc_html__('Popular Posts','blogline'),
-			'comments'	=> esc_html__('Recent Comments','blogline'),
-			'tags'		=> esc_html__('Tags','blogline')
+			'recent'	=> esc_html__('Recent Posts','blogside'),
+			'popular'	=> esc_html__('Popular Posts','blogside'),
+			'comments'	=> esc_html__('Recent Comments','blogside'),
+			'tags'		=> esc_html__('Tags','blogside')
 		);
 		$icons = array(
 			'recent'   => 'fa fa-clock-o',
@@ -78,7 +78,7 @@ class BloglineTabs extends WP_Widget {
 	public function widget($args, $instance) {
 		extract( $args );
 
-		$defaults = $this -> blogline_get_defaults();
+		$defaults = $this -> blogside_get_defaults();
 
 		$instance = wp_parse_args( (array) $instance, $defaults );
 
@@ -124,7 +124,7 @@ class BloglineTabs extends WP_Widget {
 					<div class="tab-item-thumbnail">
 						<a href="<?php the_permalink(); ?>">
 							<?php if ( has_post_thumbnail() ): ?>
-								<?php the_post_thumbnail('blogline-small'); ?>
+								<?php the_post_thumbnail('blogside-small'); ?>
 							<?php else: ?>
 								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/thumb-small.png" alt="<?php the_title_attribute(); ?>" />
 							<?php endif; ?>
@@ -175,7 +175,7 @@ class BloglineTabs extends WP_Widget {
 					<div class="tab-item-thumbnail">
 						<a href="<?php the_permalink(); ?>">
 							<?php if ( has_post_thumbnail() ): ?>
-								<?php the_post_thumbnail('blogline-small'); ?>
+								<?php the_post_thumbnail('blogside-small'); ?>
 							<?php else: ?>
 								<img src="<?php echo get_template_directory_uri(); ?>/img/thumb-small.png" alt="<?php the_title_attribute(); ?>" />
 							<?php endif; ?>
@@ -218,7 +218,7 @@ class BloglineTabs extends WP_Widget {
 
 						<div class="tab-item-inner group">
 							<?php $str=explode(' ',get_comment_excerpt($comment->comment_ID)); $comment_excerpt=implode(' ',array_slice($str,0,11)); if(count($str) > 11 && substr($comment_excerpt,-1)!='.') $comment_excerpt.='...' ?>
-							<div class="tab-item-name"><?php echo esc_attr( $comment->comment_author ); ?> <?php esc_html_e('says:','blogline'); ?></div>
+							<div class="tab-item-name"><?php echo esc_attr( $comment->comment_author ); ?> <?php esc_html_e('says:','blogside'); ?></div>
 							<div class="tab-item-comment"><a href="<?php echo esc_url(get_comment_link($comment->comment_ID)); ?>"><?php echo esc_attr( $comment_excerpt ); ?></a></div>
 
 						</div>
@@ -314,113 +314,113 @@ class BloglineTabs extends WP_Widget {
 
 	<div class="alx-options-tabs">
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id('title') ); ?>"><?php esc_html_e( 'Title:', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('title') ); ?>"><?php esc_html_e( 'Title:', 'blogside' ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id('title') ); ?>" name="<?php echo esc_attr( $this->get_field_name('title') ); ?>" type="text" value="<?php echo esc_attr($instance["title"]); ?>" />
 		</p>
 
-		<h4><?php esc_html_e( 'Recent Posts', 'blogline' ); ?></h4>
+		<h4><?php esc_html_e( 'Recent Posts', 'blogside' ); ?></h4>
 
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('recent_enable') ); ?>" name="<?php echo esc_attr( $this->get_field_name('recent_enable') ); ?>" <?php checked( (bool) $instance["recent_enable"], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id('recent_enable') ); ?>"><?php esc_html_e( 'Enable recent posts', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('recent_enable') ); ?>"><?php esc_html_e( 'Enable recent posts', 'blogside' ); ?></label>
 		</p>
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('recent_thumbs') ); ?>" name="<?php echo esc_attr( $this->get_field_name('recent_thumbs') ); ?>" <?php checked( (bool) $instance["recent_thumbs"], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id('recent_thumbs') ); ?>"><?php esc_html_e( 'Show thumbnails', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('recent_thumbs') ); ?>"><?php esc_html_e( 'Show thumbnails', 'blogside' ); ?></label>
 		</p>
 		<p>
-			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("recent_num") ); ?>"><?php esc_html_e( 'Items to show', 'blogline' ); ?></label>
+			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("recent_num") ); ?>"><?php esc_html_e( 'Items to show', 'blogside' ); ?></label>
 			<input style="width:20%;" id="<?php echo esc_attr( $this->get_field_id("recent_num") ); ?>" name="<?php echo esc_attr( $this->get_field_name("recent_num") ); ?>" type="text" value="<?php echo absint($instance["recent_num"]); ?>" size='3' />
 		</p>
 		<p>
-			<label style="width: 100%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("recent_cat_id") ); ?>"><?php esc_html_e( 'Category:', 'blogline' ); ?></label>
-			<?php wp_dropdown_categories( array( 'name' => $this->get_field_name("recent_cat_id"), 'selected' => $instance["recent_cat_id"], 'show_option_all' => esc_html__('All','blogline'), 'show_count' => true ) ); ?>
+			<label style="width: 100%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("recent_cat_id") ); ?>"><?php esc_html_e( 'Category:', 'blogside' ); ?></label>
+			<?php wp_dropdown_categories( array( 'name' => $this->get_field_name("recent_cat_id"), 'selected' => $instance["recent_cat_id"], 'show_option_all' => esc_html__('All','blogside'), 'show_count' => true ) ); ?>
 		</p>
 
 		<hr>
-		<h4><?php esc_html_e( 'Most Popular', 'blogline' ); ?></h4>
+		<h4><?php esc_html_e( 'Most Popular', 'blogside' ); ?></h4>
 
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('popular_enable') ); ?>" name="<?php echo esc_attr( $this->get_field_name('popular_enable') ); ?>" <?php checked( (bool) $instance["popular_enable"], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id('popular_enable') ); ?>"><?php esc_html_e( 'Enable most popular posts', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('popular_enable') ); ?>"><?php esc_html_e( 'Enable most popular posts', 'blogside' ); ?></label>
 		</p>
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('popular_thumbs') ); ?>" name="<?php echo esc_attr( $this->get_field_name('popular_thumbs') ); ?>" <?php checked( (bool) $instance["popular_thumbs"], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id('popular_thumbs') ); ?>"><?php esc_html_e( 'Show thumbnails', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('popular_thumbs') ); ?>"><?php esc_html_e( 'Show thumbnails', 'blogside' ); ?></label>
 		</p>
 		<p>
-			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("popular_num") ); ?>"><?php esc_html_e( 'Items to show', 'blogline' ); ?></label>
+			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("popular_num") ); ?>"><?php esc_html_e( 'Items to show', 'blogside' ); ?></label>
 			<input style="width:20%;" id="<?php echo esc_attr( $this->get_field_id("popular_num") ); ?>" name="<?php echo esc_attr( $this->get_field_name("popular_num") ); ?>" type="text" value="<?php echo absint($instance["popular_num"]); ?>" size='3' />
 		</p>
 		<p>
-			<label style="width: 100%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("popular_cat_id") ); ?>"><?php esc_html_e( 'Category:', 'blogline' ); ?></label>
-			<?php wp_dropdown_categories( array( 'name' => $this->get_field_name("popular_cat_id"), 'selected' => $instance["popular_cat_id"], 'show_option_all' => esc_html__('All','blogline'), 'show_count' => true ) ); ?>
+			<label style="width: 100%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("popular_cat_id") ); ?>"><?php esc_html_e( 'Category:', 'blogside' ); ?></label>
+			<?php wp_dropdown_categories( array( 'name' => $this->get_field_name("popular_cat_id"), 'selected' => $instance["popular_cat_id"], 'show_option_all' => esc_html__('All','blogside'), 'show_count' => true ) ); ?>
 		</p>
 		<p style="padding-top: 0.3em;">
-			<label style="width: 100%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("popular_time") ); ?>"><?php esc_html_e( 'Post with most comments from:', 'blogline' ); ?></label>
+			<label style="width: 100%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("popular_time") ); ?>"><?php esc_html_e( 'Post with most comments from:', 'blogside' ); ?></label>
 			<select style="width: 100%;" id="<?php echo esc_attr( $this->get_field_id("popular_time") ); ?>" name="<?php echo esc_attr( $this->get_field_name("popular_time") ); ?>">
-			  <option value="0"<?php selected( $instance["popular_time"], "0" ); ?>><?php esc_html_e( 'All time', 'blogline' ); ?></option>
-			  <option value="1 year ago"<?php selected( $instance["popular_time"], "1 year ago" ); ?>><?php esc_html_e( 'This year', 'blogline' ); ?></option>
-			  <option value="1 month ago"<?php selected( $instance["popular_time"], "1 month ago" ); ?>><?php esc_html_e( 'This month', 'blogline' ); ?></option>
-			  <option value="1 week ago"<?php selected( $instance["popular_time"], "1 week ago" ); ?>><?php esc_html_e( 'This week', 'blogline' ); ?></option>
-			  <option value="1 day ago"<?php selected( $instance["popular_time"], "1 day ago" ); ?>><?php esc_html_e( 'Past 24 hours', 'blogline' ); ?></option>
+			  <option value="0"<?php selected( $instance["popular_time"], "0" ); ?>><?php esc_html_e( 'All time', 'blogside' ); ?></option>
+			  <option value="1 year ago"<?php selected( $instance["popular_time"], "1 year ago" ); ?>><?php esc_html_e( 'This year', 'blogside' ); ?></option>
+			  <option value="1 month ago"<?php selected( $instance["popular_time"], "1 month ago" ); ?>><?php esc_html_e( 'This month', 'blogside' ); ?></option>
+			  <option value="1 week ago"<?php selected( $instance["popular_time"], "1 week ago" ); ?>><?php esc_html_e( 'This week', 'blogside' ); ?></option>
+			  <option value="1 day ago"<?php selected( $instance["popular_time"], "1 day ago" ); ?>><?php esc_html_e( 'Past 24 hours', 'blogside' ); ?></option>
 			</select>
 		</p>
 
 		<hr>
-		<h4><?php esc_html_e( 'Recent Comments', 'blogline' ); ?></h4>
+		<h4><?php esc_html_e( 'Recent Comments', 'blogside' ); ?></h4>
 
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('comments_enable') ); ?>" name="<?php echo esc_attr( $this->get_field_name('comments_enable') ); ?>" <?php checked( (bool) $instance["comments_enable"], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id('comments_enable') ); ?>"><?php esc_html_e( 'Enable recent comments', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('comments_enable') ); ?>"><?php esc_html_e( 'Enable recent comments', 'blogside' ); ?></label>
 		</p>
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('comments_avatars') ); ?>" name="<?php echo esc_attr( $this->get_field_name('comments_avatars') ); ?>" <?php checked( (bool) $instance["comments_avatars"], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id('comments_avatars') ); ?>"><?php esc_html_e( 'Show avatars', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('comments_avatars') ); ?>"><?php esc_html_e( 'Show avatars', 'blogside' ); ?></label>
 		</p>
 		<p>
-			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("comments_num") ); ?>"><?php esc_html_e( 'Items to show', 'blogline' ); ?></label>
+			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("comments_num") ); ?>"><?php esc_html_e( 'Items to show', 'blogside' ); ?></label>
 			<input style="width:20%;" id="<?php echo esc_attr( $this->get_field_id("comments_num") ); ?>" name="<?php echo esc_attr( $this->get_field_name("comments_num") ); ?>" type="text" value="<?php echo absint($instance["comments_num"]); ?>" size='3' />
 		</p>
 
 		<hr>
-		<h4><?php esc_html_e( 'Tags', 'blogline' ); ?></h4>
+		<h4><?php esc_html_e( 'Tags', 'blogside' ); ?></h4>
 
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('tags_enable') ); ?>" name="<?php echo esc_attr( $this->get_field_name('tags_enable') ); ?>" <?php checked( (bool) $instance["tags_enable"], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id('tags_enable') ); ?>"><?php esc_html_e( 'Enable tags', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('tags_enable') ); ?>"><?php esc_html_e( 'Enable tags', 'blogside' ); ?></label>
 		</p>
 
 		<hr>
-		<h4><?php esc_html_e( 'Tab Order', 'blogline' ); ?></h4>
+		<h4><?php esc_html_e( 'Tab Order', 'blogside' ); ?></h4>
 
 		<p>
-			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("order_recent") ); ?>"><?php esc_html_e( 'Recent posts', 'blogline' ); ?></label>
+			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("order_recent") ); ?>"><?php esc_html_e( 'Recent posts', 'blogside' ); ?></label>
 			<input class="widefat" style="width:20%;" type="text" id="<?php echo esc_attr( $this->get_field_id("order_recent") ); ?>" name="<?php echo esc_attr( $this->get_field_name("order_recent") ); ?>" value="<?php echo esc_attr( $instance["order_recent"] ); ?>" />
 		</p>
 		<p>
-			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("order_popular") ); ?>"><?php esc_html_e( 'Most popular', 'blogline' ); ?></label>
+			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("order_popular") ); ?>"><?php esc_html_e( 'Most popular', 'blogside' ); ?></label>
 			<input class="widefat" style="width:20%;" type="text" id="<?php echo esc_attr( $this->get_field_id("order_popular") ); ?>" name="<?php echo esc_attr( $this->get_field_name("order_popular") ); ?>" value="<?php echo esc_attr( $instance["order_popular"] ); ?>" />
 		</p>
 		<p>
-			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("order_comments") ); ?>"><?php esc_html_e( 'Recent comments', 'blogline' ); ?></label>
+			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("order_comments") ); ?>"><?php esc_html_e( 'Recent comments', 'blogside' ); ?></label>
 			<input class="widefat" style="width:20%;" type="text" id="<?php echo esc_attr( $this->get_field_id("order_comments") ); ?>" name="<?php echo esc_attr( $this->get_field_name("order_comments") ); ?>" value="<?php echo esc_attr( $instance["order_comments"] ); ?>" />
 		</p>
 		<p>
-			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("order_tags") ); ?>"><?php esc_html_e( 'Tags', 'blogline' ); ?></label>
+			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("order_tags") ); ?>"><?php esc_html_e( 'Tags', 'blogside' ); ?></label>
 			<input class="widefat" style="width:20%;" type="text" id="<?php echo esc_attr( $this->get_field_id("order_tags") ); ?>" name="<?php echo esc_attr( $this->get_field_name("order_tags") ); ?>" value="<?php echo esc_attr( $instance["order_tags"] ); ?>" />
 		</p>
 
 		<hr>
-		<h4><?php esc_html_e( 'Tab Info', 'blogline' ); ?></h4>
+		<h4><?php esc_html_e( 'Tab Info', 'blogside' ); ?></h4>
 
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('tabs_category') ); ?>" name="<?php echo esc_attr( $this->get_field_name('tabs_category') ); ?>" <?php checked( (bool) $instance["tabs_category"], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id('tabs_category') ); ?>"><?php esc_html_e( 'Show categories', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('tabs_category') ); ?>"><?php esc_html_e( 'Show categories', 'blogside' ); ?></label>
 		</p>
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('tabs_date') ); ?>" name="<?php echo esc_attr( $this->get_field_name('tabs_date') ); ?>" <?php checked( (bool) $instance["tabs_date"], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id('tabs_date') ); ?>"><?php esc_html_e( 'Show dates', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('tabs_date') ); ?>"><?php esc_html_e( 'Show dates', 'blogside' ); ?></label>
 		</p>
 
 		<hr>
@@ -434,11 +434,11 @@ class BloglineTabs extends WP_Widget {
 
 /*  Register widget
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_register_widget_tabs' ) ) {
+if ( ! function_exists( 'blogside_register_widget_tabs' ) ) {
 
-	function blogline_register_widget_tabs() {
-		register_widget( 'BloglineTabs' );
+	function blogside_register_widget_tabs() {
+		register_widget( 'BlogsideTabs' );
 	}
 
 }
-add_action( 'widgets_init', 'blogline_register_widget_tabs' );
+add_action( 'widgets_init', 'blogside_register_widget_tabs' );

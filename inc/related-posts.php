@@ -1,9 +1,9 @@
-<?php $related = blogline_related_posts(); ?>
+<?php $related = blogside_related_posts(); ?>
 
 <?php if ( $related->have_posts() ): ?>
 
 <h4 class="heading">
-	<i class="fa fa-hand-o-right"></i><?php esc_html_e('You may also like...','blogline'); ?>
+	<i class="fa fa-hand-o-right"></i><?php esc_html_e('You may also like...','blogside'); ?>
 </h4>
 
 <ul class="related-posts group">
@@ -15,7 +15,7 @@
 			<div class="post-thumbnail">
 				<a href="<?php the_permalink(); ?>">
 					<?php if ( has_post_thumbnail() ): ?>
-						<?php the_post_thumbnail('blogline-medium'); ?>
+						<?php the_post_thumbnail('blogside-medium'); ?>
 					<?php elseif ( get_theme_mod('placeholder') != 'off' ): ?>
 						<img src="<?php echo get_template_directory_uri(); ?>/img/thumb-medium.png" alt="<?php the_title_attribute(); ?>" />
 					<?php endif; ?>

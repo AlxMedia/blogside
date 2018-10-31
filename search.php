@@ -6,9 +6,9 @@
 	
 	<div class="pad pad-top group">	
 		<div class="notebox">
-			<?php esc_html_e('For the term','blogline'); ?> "<span><?php echo get_search_query(); ?></span>".
+			<?php esc_html_e('For the term','blogside'); ?> "<span><?php echo get_search_query(); ?></span>".
 			<?php if ( !have_posts() ): ?>
-				<?php esc_html_e('Please try another search:','blogline'); ?>
+				<?php esc_html_e('Please try another search:','blogside'); ?>
 			<?php endif; ?>
 			<div class="search-again">
 				<?php get_search_form(); ?>

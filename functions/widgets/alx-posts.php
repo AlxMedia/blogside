@@ -1,25 +1,25 @@
 <?php
 /*
-	BloglinePosts Widget
+	BlogsidePosts Widget
 
 	License: GNU General Public License v3.0
 	License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 	Copyright: (c) 2013 Alexander "Alx" Agnarson - http://alxmedia.se
 
-		@package BloglinePosts
+		@package BlogsidePosts
 		@version 1.0
 */
 
-class BloglinePosts extends WP_Widget {
+class BlogsidePosts extends WP_Widget {
 
 /*  Constructor
 /* ------------------------------------ */
 	function __construct() {
-		parent::__construct( false, esc_html__( 'Alx Posts', 'blogline' ), array('description' => esc_html__( 'Display posts from a category', 'blogline' ), 'classname' => 'widget_blogline_posts', 'customize_selective_refresh' => true ) );
+		parent::__construct( false, esc_html__( 'Alx Posts', 'blogside' ), array('description' => esc_html__( 'Display posts from a category', 'blogside' ), 'classname' => 'widget_blogside_posts', 'customize_selective_refresh' => true ) );
 	}
 
-	public function blogline_get_defaults() {
+	public function blogside_get_defaults() {
 		return array(
 			'title'			=> '',
 			// Posts
@@ -38,7 +38,7 @@ class BloglinePosts extends WP_Widget {
 	public function widget($args, $instance) {
 		extract( $args );
 
-		$defaults = $this -> blogline_get_defaults();
+		$defaults = $this -> blogside_get_defaults();
 
 		$instance = wp_parse_args( (array) $instance, $defaults );
 
@@ -74,7 +74,7 @@ class BloglinePosts extends WP_Widget {
 			<div class="post-item-thumbnail">
 				<a href="<?php the_permalink(); ?>">
 					<?php if ( has_post_thumbnail() ): ?>
-						<?php the_post_thumbnail('blogline-medium'); ?>
+						<?php the_post_thumbnail('blogside-medium'); ?>
 					<?php else: ?>
 						<img src="<?php echo get_template_directory_uri(); ?>/img/thumb-medium.png" alt="<?php the_title_attribute(); ?>" />
 					<?php endif; ?>
@@ -138,53 +138,53 @@ class BloglinePosts extends WP_Widget {
 
 	<div class="alx-options-posts">
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id('title') ); ?>"><?php esc_html_e( 'Title:', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('title') ); ?>"><?php esc_html_e( 'Title:', 'blogside' ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id('title') ); ?>" name="<?php echo esc_attr( $this->get_field_name('title') ); ?>" type="text" value="<?php echo esc_attr( $instance["title"] ); ?>" />
 		</p>
 
-		<h4><?php esc_html_e( 'List Posts', 'blogline' ); ?></h4>
+		<h4><?php esc_html_e( 'List Posts', 'blogside' ); ?></h4>
 
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('posts_thumb') ); ?>" name="<?php echo esc_attr( $this->get_field_name('posts_thumb') ); ?>" <?php checked( (bool) $instance["posts_thumb"], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id('posts_thumb') ); ?>"><?php esc_html_e( 'Show thumbnails', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('posts_thumb') ); ?>"><?php esc_html_e( 'Show thumbnails', 'blogside' ); ?></label>
 		</p>
 		<p>
-			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("posts_num") ); ?>"><?php esc_html_e( 'Items to show', 'blogline' ); ?></label>
+			<label style="width: 55%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("posts_num") ); ?>"><?php esc_html_e( 'Items to show', 'blogside' ); ?></label>
 			<input style="width:20%;" id="<?php echo esc_attr( $this->get_field_id("posts_num") ); ?>" name="<?php echo esc_attr( $this->get_field_name("posts_num") ); ?>" type="text" value="<?php echo absint($instance["posts_num"]); ?>" size='3' />
 		</p>
 		<p>
-			<label style="width: 100%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("posts_cat_id") ); ?>"><?php esc_html_e( 'Category:', 'blogline' ); ?></label>
-			<?php wp_dropdown_categories( array( 'name' => $this->get_field_name("posts_cat_id"), 'selected' => $instance["posts_cat_id"], 'show_option_all' => esc_html__( 'All', 'blogline' ), 'show_count' => true ) ); ?>
+			<label style="width: 100%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("posts_cat_id") ); ?>"><?php esc_html_e( 'Category:', 'blogside' ); ?></label>
+			<?php wp_dropdown_categories( array( 'name' => $this->get_field_name("posts_cat_id"), 'selected' => $instance["posts_cat_id"], 'show_option_all' => esc_html__( 'All', 'blogside' ), 'show_count' => true ) ); ?>
 		</p>
 		<p style="padding-top: 0.3em;">
-			<label style="width: 100%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("posts_orderby") ); ?>"><?php esc_html_e( 'Order by:', 'blogline' ); ?></label>
+			<label style="width: 100%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("posts_orderby") ); ?>"><?php esc_html_e( 'Order by:', 'blogside' ); ?></label>
 			<select style="width: 100%;" id="<?php echo esc_attr( $this->get_field_id("posts_orderby") ); ?>" name="<?php echo esc_attr( $this->get_field_name("posts_orderby") ); ?>">
-			  <option value="date"<?php selected( $instance["posts_orderby"], "date" ); ?>><?php esc_html_e( 'Most recent', 'blogline' ); ?></option>
-			  <option value="comment_count"<?php selected( $instance["posts_orderby"], "comment_count" ); ?>><?php esc_html_e( 'Most commented', 'blogline' ); ?></option>
-			  <option value="rand"<?php selected( $instance["posts_orderby"], "rand" ); ?>><?php esc_html_e( 'Random', 'blogline' ); ?></option>
+			  <option value="date"<?php selected( $instance["posts_orderby"], "date" ); ?>><?php esc_html_e( 'Most recent', 'blogside' ); ?></option>
+			  <option value="comment_count"<?php selected( $instance["posts_orderby"], "comment_count" ); ?>><?php esc_html_e( 'Most commented', 'blogside' ); ?></option>
+			  <option value="rand"<?php selected( $instance["posts_orderby"], "rand" ); ?>><?php esc_html_e( 'Random', 'blogside' ); ?></option>
 			</select>
 		</p>
 		<p style="padding-top: 0.3em;">
-			<label style="width: 100%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("posts_time") ); ?>"><?php esc_html_e( 'Posts from:', 'blogline' ); ?></label>
+			<label style="width: 100%; display: inline-block;" for="<?php echo esc_attr( $this->get_field_id("posts_time") ); ?>"><?php esc_html_e( 'Posts from:', 'blogside' ); ?></label>
 			<select style="width: 100%;" id="<?php echo esc_attr( $this->get_field_id("posts_time") ); ?>" name="<?php echo esc_attr( $this->get_field_name("posts_time") ); ?>">
-			  <option value="0"<?php selected( $instance["posts_time"], "0" ); ?>><?php esc_html_e( 'All time', 'blogline' ); ?></option>
-			  <option value="1 year ago"<?php selected( $instance["posts_time"], "1 year ago" ); ?>><?php esc_html_e( 'This year', 'blogline' ); ?></option>
-			  <option value="1 month ago"<?php selected( $instance["posts_time"], "1 month ago" ); ?>><?php esc_html_e( 'This month', 'blogline' ); ?></option>
-			  <option value="1 week ago"<?php selected( $instance["posts_time"], "1 week ago" ); ?>><?php esc_html_e( 'This week', 'blogline' ); ?></option>
-			  <option value="1 day ago"<?php selected( $instance["posts_time"], "1 day ago" ); ?>><?php esc_html_e( 'Past 24 hours', 'blogline' ); ?></option>
+			  <option value="0"<?php selected( $instance["posts_time"], "0" ); ?>><?php esc_html_e( 'All time', 'blogside' ); ?></option>
+			  <option value="1 year ago"<?php selected( $instance["posts_time"], "1 year ago" ); ?>><?php esc_html_e( 'This year', 'blogside' ); ?></option>
+			  <option value="1 month ago"<?php selected( $instance["posts_time"], "1 month ago" ); ?>><?php esc_html_e( 'This month', 'blogside' ); ?></option>
+			  <option value="1 week ago"<?php selected( $instance["posts_time"], "1 week ago" ); ?>><?php esc_html_e( 'This week', 'blogside' ); ?></option>
+			  <option value="1 day ago"<?php selected( $instance["posts_time"], "1 day ago" ); ?>><?php esc_html_e( 'Past 24 hours', 'blogside' ); ?></option>
 			</select>
 		</p>
 
 		<hr>
-		<h4><?php esc_html_e( 'Post Info', 'blogline' ); ?></h4>
+		<h4><?php esc_html_e( 'Post Info', 'blogside' ); ?></h4>
 
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('posts_category') ); ?>" name="<?php echo esc_attr( $this->get_field_name('posts_category') ); ?>" <?php checked( (bool) $instance["posts_category"], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id('posts_category') ); ?>"><?php esc_html_e( 'Show categories', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('posts_category') ); ?>"><?php esc_html_e( 'Show categories', 'blogside' ); ?></label>
 		</p>
 		<p>
 			<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $this->get_field_id('posts_date') ); ?>" name="<?php echo esc_attr( $this->get_field_name('posts_date') ); ?>" <?php checked( (bool) $instance["posts_date"], true ); ?>>
-			<label for="<?php echo esc_attr( $this->get_field_id('posts_date') ); ?>"><?php esc_html_e( 'Show dates', 'blogline' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id('posts_date') ); ?>"><?php esc_html_e( 'Show dates', 'blogside' ); ?></label>
 		</p>
 
 		<hr>
@@ -198,11 +198,11 @@ class BloglinePosts extends WP_Widget {
 
 /*  Register widget
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_register_widget_posts' ) ) {
+if ( ! function_exists( 'blogside_register_widget_posts' ) ) {
 
-	function blogline_register_widget_posts() {
-		register_widget( 'BloglinePosts' );
+	function blogside_register_widget_posts() {
+		register_widget( 'BlogsidePosts' );
 	}
 
 }
-add_action( 'widgets_init', 'blogline_register_widget_posts' );
+add_action( 'widgets_init', 'blogside_register_widget_posts' );

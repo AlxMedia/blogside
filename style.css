@@ -1,12 +1,12 @@
 /*
-Theme Name: Blogline
-Theme URI: http://alxmedia.se/themes/blogline/
-Version: 1.0.4
-Description: <a href="http://alxmedia.se/themes/blogline/">Blogline</a> is a responsive 100% high resolution theme for personal blogs. Unique toggle sidebars give a great browsing and reading experience on both tablet and mobile. The feature list is long: Unlimited accent colors, unlimited widget areas, 0-1 sidebars to the left or right that can be uniquely specified for each page or post, 300px fixed width sidebar, 0-4 footer widget columns, almost zero layout images, related posts and post nav, 5 post formats, good SEO, 2 flexible custom widgets, localisation support, social links, logo upload and many more useful admin panel features.
+Theme Name: Blogside
+Theme URI: http://alxmedia.se/themes/blogside/
+Version: 1.0.5
+Description: <a href="http://alxmedia.se/themes/blogside/">Blogside</a> is a responsive 100% high resolution theme for personal blogs. Unique toggle sidebars give a great browsing and reading experience on both tablet and mobile. The feature list is long: Unlimited accent colors, unlimited widget areas, 0-1 sidebars to the left or right that can be uniquely specified for each page or post, 300px fixed width sidebar, 0-4 footer widget columns, almost zero layout images, related posts and post nav, 5 post formats, good SEO, 2 flexible custom widgets, localisation support, social links, logo upload and many more useful admin panel features.
 Author: Alexander Agnarson
 Author URI: http://alxmedia.se
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, custom-colors, custom-menu, featured-images, flexible-header, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, custom-logo, custom-header, custom-background
-Text Domain: blogline
+Text Domain: blogside
 
 	Copyright: (c) 2018 Alexander "Alx" Agnarson
 	License: GNU General Public License v3.0
@@ -1015,8 +1015,8 @@ transition-property: background color; transition-duration: 0.2s; transition-tim
 .widget_rss > h3:after { content: "\f09e"; }
 .widget_pages > h3:after { content: "\f067"; }
 .widget_nav_menu > h3:after { content: "\f067"; }
-.widget_blogline_posts > h3:after { content: "\f067"; }
-.widget_blogline_tabs > h3:after { content: "\f067"; }
+.widget_blogside_posts > h3:after { content: "\f067"; }
+.widget_blogside_tabs > h3:after { content: "\f067"; }
 .widget_text > h3:after { content: "\f067"; }
 .widget_search > h3:after { content: "\f002"; }
 .widget_tag_cloud > h3:after { content: "\f0c2"; }
@@ -1156,7 +1156,7 @@ transition-property: background color; transition-duration: 0.2s; transition-tim
 
 /*  custom widget : alxvideo
 /* ------------------------------------ */
-.widget_blogline_video h3 { margin-bottom: 14px; }
+.widget_blogside_video h3 { margin-bottom: 14px; }
 
 
 /* ------------------------------------------------------------------------- *

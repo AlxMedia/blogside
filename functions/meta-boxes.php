@@ -1,5 +1,5 @@
 <?php
-function blogline_get_meta_box( $meta_boxes ) {
+function blogside_get_meta_box( $meta_boxes ) {
 	
 	/* do not show */
 	$prefix = '_';
@@ -18,7 +18,7 @@ function blogline_get_meta_box( $meta_boxes ) {
 /* ------------------------------------ */	
 	$meta_boxes[] = array(
 		'id' => 'page-options',
-		'title' => esc_html__( 'Page Options', 'blogline' ),
+		'title' => esc_html__( 'Page Options', 'blogside' ),
 		'post_types' => array( 'page' ),
 		'context' => 'advanced',
 		'priority' => 'high',
@@ -26,15 +26,15 @@ function blogline_get_meta_box( $meta_boxes ) {
 		'fields' => array(
 			array(
 				'id' => $prefix . 'sidebar_primary',
-				'name' => esc_html__( 'Primary Sidebar', 'blogline' ),
+				'name' => esc_html__( 'Primary Sidebar', 'blogside' ),
 				'type' => 'select',
-				'placeholder' => esc_html__( 'Select a sidebar', 'blogline' ),
+				'placeholder' => esc_html__( 'Select a sidebar', 'blogside' ),
 				'options' => $sidebars_choices,
 			),
 			array(
 				'id' => $prefix . 'layout',
 				'type' => 'image_select',
-				'name' => esc_html__( 'Layout', 'blogline' ),
+				'name' => esc_html__( 'Layout', 'blogside' ),
 				'std' => 'inherit',
 				'force_delete' => false,
 				'max_file_uploads' => '4',
@@ -52,7 +52,7 @@ function blogline_get_meta_box( $meta_boxes ) {
 /* ------------------------------------ */	
 	$meta_boxes[] = array(
 		'id' => 'post-options',
-		'title' => esc_html__( 'Post Options', 'blogline' ),
+		'title' => esc_html__( 'Post Options', 'blogside' ),
 		'post_types' => array( 'post' ),
 		'context' => 'advanced',
 		'priority' => 'high',
@@ -60,15 +60,15 @@ function blogline_get_meta_box( $meta_boxes ) {
 		'fields' => array(
 			array(
 				'id' => $prefix . 'sidebar_primary',
-				'name' => esc_html__( 'Primary Sidebar', 'blogline' ),
+				'name' => esc_html__( 'Primary Sidebar', 'blogside' ),
 				'type' => 'select',
-				'placeholder' => esc_html__( 'Select a sidebar', 'blogline' ),
+				'placeholder' => esc_html__( 'Select a sidebar', 'blogside' ),
 				'options' => $sidebars_choices,
 			),
 			array(
 				'id' => $prefix . 'layout',
 				'type' => 'image_select',
-				'name' => esc_html__( 'Layout', 'blogline' ),
+				'name' => esc_html__( 'Layout', 'blogside' ),
 				'std' => 'inherit',
 				'force_delete' => false,
 				'max_file_uploads' => '4',
@@ -84,4 +84,4 @@ function blogline_get_meta_box( $meta_boxes ) {
 	
 	return $meta_boxes;
 }
-add_filter( 'rwmb_meta_boxes', 'blogline_get_meta_box' );
+add_filter( 'rwmb_meta_boxes', 'blogside_get_meta_box' );

@@ -11,11 +11,11 @@
  *  Load theme files
 /* ------------------------------------------------------------------------- */	
 
-if ( ! function_exists( 'blogline_load' ) ) {
+if ( ! function_exists( 'blogside_load' ) ) {
 	
-	function blogline_load() {
+	function blogside_load() {
 		// Load theme languages
-		load_theme_textdomain( 'blogline', get_template_directory().'/languages' );
+		load_theme_textdomain( 'blogside', get_template_directory().'/languages' );
 		
 		// Load theme options and meta boxes
 		include( get_template_directory() . '/functions/kirki/kirki.php' );
@@ -34,7 +34,7 @@ if ( ! function_exists( 'blogline_load' ) ) {
 	}
 	
 }
-add_action( 'after_setup_theme', 'blogline_load' );	
+add_action( 'after_setup_theme', 'blogside_load' );	
 
 
 /* ------------------------------------------------------------------------- *
@@ -47,9 +47,9 @@ add_action( 'after_setup_theme', 'blogline_load' );
 
 /*  Theme setup
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_setup' ) ) {
+if ( ! function_exists( 'blogside_setup' ) ) {
 	
-	function blogline_setup() {
+	function blogside_setup() {
 		// Enable title tag
 		add_theme_support( 'title-tag' );
 		
@@ -69,27 +69,27 @@ if ( ! function_exists( 'blogline_setup' ) ) {
 		add_theme_support( 'customize-selective-refresh-widgets' );
 		
 		// Thumbnail sizes
-		add_image_size( 'blogline-small', 200, 200, true );
-		add_image_size( 'blogline-medium', 520, 292, true );
-		add_image_size( 'blogline-large', 720, 404, true );
-		add_image_size( 'blogline-list', 320, 320, true );
+		add_image_size( 'blogside-small', 200, 200, true );
+		add_image_size( 'blogside-medium', 520, 292, true );
+		add_image_size( 'blogside-large', 720, 404, true );
+		add_image_size( 'blogside-list', 320, 320, true );
 
 		// Custom menu areas
 		register_nav_menus( array(
-			'mobile' 	=> esc_html__( 'Mobile', 'blogline' ),
-			'topbar' 	=> esc_html__( 'Topbar', 'blogline' ),
+			'mobile' 	=> esc_html__( 'Mobile', 'blogside' ),
+			'topbar' 	=> esc_html__( 'Topbar', 'blogside' ),
 		) );
 	}
 	
 }
-add_action( 'after_setup_theme', 'blogline_setup' );
+add_action( 'after_setup_theme', 'blogside_setup' );
 
 
 /*  Custom logo
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_custom_logo' ) ) {
+if ( ! function_exists( 'blogside_custom_logo' ) ) {
 	
-	function blogline_custom_logo() {
+	function blogside_custom_logo() {
 		$defaults = array(
 			'height'		=> 120,
 			'width'			=> 400,
@@ -101,14 +101,14 @@ if ( ! function_exists( 'blogline_custom_logo' ) ) {
 	}
 
 }	
-add_action( 'after_setup_theme', 'blogline_custom_logo' );
+add_action( 'after_setup_theme', 'blogside_custom_logo' );
 
 
 /*  Custom header
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_custom_header' ) ) {
+if ( ! function_exists( 'blogside_custom_header' ) ) {
 	
-	function blogline_custom_header() {
+	function blogside_custom_header() {
 		$args = array(
 			'default-image'	=> false,
 			'default-text'	=> false,
@@ -121,86 +121,86 @@ if ( ! function_exists( 'blogline_custom_header' ) ) {
 	}
 	
 }
-add_action( 'after_setup_theme', 'blogline_custom_header' );
+add_action( 'after_setup_theme', 'blogside_custom_header' );
 
 
 /*  Custom background
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_custom_background' ) ) {
+if ( ! function_exists( 'blogside_custom_background' ) ) {
 	
-	function blogline_custom_background() {
+	function blogside_custom_background() {
 		$args = array();
 		add_theme_support( 'custom-background', $args );
 	}
 	
 }
-add_action( 'after_setup_theme', 'blogline_custom_background' );
+add_action( 'after_setup_theme', 'blogside_custom_background' );
 
 
 /*  Deregister
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_deregister' ) ) {
+if ( ! function_exists( 'blogside_deregister' ) ) {
 	
-	function blogline_deregister() {
+	function blogside_deregister() {
 		wp_deregister_style( 'wp-pagenavi' );
 	}
 	
 }
-add_action( 'wp_enqueue_scripts', 'blogline_deregister', 100 );
+add_action( 'wp_enqueue_scripts', 'blogside_deregister', 100 );
 
 
 /*  Register sidebars
 /* ------------------------------------ */	
-if ( ! function_exists( 'blogline_sidebars' ) ) {
+if ( ! function_exists( 'blogside_sidebars' ) ) {
 
-	function blogline_sidebars()	{
-		register_sidebar(array( 'name' => esc_html__('Primary','blogline'),'id' => 'primary','description' => esc_html__("Normal full width sidebar","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>'));
+	function blogside_sidebars()	{
+		register_sidebar(array( 'name' => esc_html__('Primary','blogside'),'id' => 'primary','description' => esc_html__("Normal full width sidebar","blogside"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>'));
 		
-		if ( get_theme_mod('footer-ads') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Footer Ads',"blogline"),'id' => 'footer-ads', 'description' => esc_html__("Footer ads area","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('footer-ads') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Footer Ads',"blogside"),'id' => 'footer-ads', 'description' => esc_html__("Footer ads area","blogside"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
 		
-		if ( get_theme_mod('frontpage-widgets-top') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Frontpage Top 1','blogline'),'id' => 'frontpage-top-1', 'description' => esc_html__("Frontpage area","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( get_theme_mod('frontpage-widgets-top') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Frontpage Top 2','blogline'),'id' => 'frontpage-top-2', 'description' => esc_html__("Frontpage area","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( get_theme_mod('frontpage-widgets-bottom') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Frontpage Bottom 1','blogline'),'id' => 'frontpage-bottom-1', 'description' => esc_html__("Frontpage area","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( get_theme_mod('frontpage-widgets-bottom') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Frontpage Bottom 2','blogline'),'id' => 'frontpage-bottom-2', 'description' => esc_html__("Frontpage area","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('frontpage-widgets-top') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Frontpage Top 1','blogside'),'id' => 'frontpage-top-1', 'description' => esc_html__("Frontpage area","blogside"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('frontpage-widgets-top') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Frontpage Top 2','blogside'),'id' => 'frontpage-top-2', 'description' => esc_html__("Frontpage area","blogside"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('frontpage-widgets-bottom') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Frontpage Bottom 1','blogside'),'id' => 'frontpage-bottom-1', 'description' => esc_html__("Frontpage area","blogside"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('frontpage-widgets-bottom') == 'on' ) { register_sidebar(array( 'name' => esc_html__('Frontpage Bottom 2','blogside'),'id' => 'frontpage-bottom-2', 'description' => esc_html__("Frontpage area","blogside"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
 		
-		if ( get_theme_mod('footer-widgets') >= '1' ) { register_sidebar(array( 'name' => esc_html__('Footer 1','blogline'),'id' => 'footer-1', 'description' => esc_html__("Widgetized footer","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( get_theme_mod('footer-widgets') >= '2' ) { register_sidebar(array( 'name' => esc_html__('Footer 2','blogline'),'id' => 'footer-2', 'description' => esc_html__("Widgetized footer","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( get_theme_mod('footer-widgets') >= '3' ) { register_sidebar(array( 'name' => esc_html__('Footer 3','blogline'),'id' => 'footer-3', 'description' => esc_html__("Widgetized footer","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
-		if ( get_theme_mod('footer-widgets') >= '4' ) { register_sidebar(array( 'name' => esc_html__('Footer 4','blogline'),'id' => 'footer-4', 'description' => esc_html__("Widgetized footer","blogline"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('footer-widgets') >= '1' ) { register_sidebar(array( 'name' => esc_html__('Footer 1','blogside'),'id' => 'footer-1', 'description' => esc_html__("Widgetized footer","blogside"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('footer-widgets') >= '2' ) { register_sidebar(array( 'name' => esc_html__('Footer 2','blogside'),'id' => 'footer-2', 'description' => esc_html__("Widgetized footer","blogside"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('footer-widgets') >= '3' ) { register_sidebar(array( 'name' => esc_html__('Footer 3','blogside'),'id' => 'footer-3', 'description' => esc_html__("Widgetized footer","blogside"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
+		if ( get_theme_mod('footer-widgets') >= '4' ) { register_sidebar(array( 'name' => esc_html__('Footer 4','blogside'),'id' => 'footer-4', 'description' => esc_html__("Widgetized footer","blogside"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3 class="group"><span>','after_title' => '</span></h3>')); }
 	}
 	
 }
-add_action( 'widgets_init', 'blogline_sidebars' );
+add_action( 'widgets_init', 'blogside_sidebars' );
 
 
 /*  Enqueue javascript
 /* ------------------------------------ */	
-if ( ! function_exists( 'blogline_scripts' ) ) {
+if ( ! function_exists( 'blogside_scripts' ) ) {
 	
-	function blogline_scripts() {
-		wp_enqueue_script( 'blogline-flexslider', get_template_directory_uri() . '/js/jquery.flexslider.min.js', array( 'jquery' ),'', false );
-		wp_enqueue_script( 'blogline-fitvids', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ),'', true );
-		wp_enqueue_script( 'blogline-owl-carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ),'', true );
-		wp_enqueue_script( 'blogline-scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ),'', true );
+	function blogside_scripts() {
+		wp_enqueue_script( 'blogside-flexslider', get_template_directory_uri() . '/js/jquery.flexslider.min.js', array( 'jquery' ),'', false );
+		wp_enqueue_script( 'blogside-fitvids', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ),'', true );
+		wp_enqueue_script( 'blogside-owl-carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', array( 'jquery' ),'', true );
+		wp_enqueue_script( 'blogside-scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ),'', true );
 		if ( is_singular() && get_option( 'thread_comments' ) )	{ wp_enqueue_script( 'comment-reply' ); }
 	}  
 	
 }
-add_action( 'wp_enqueue_scripts', 'blogline_scripts' ); 
+add_action( 'wp_enqueue_scripts', 'blogside_scripts' ); 
 
 
 /*  Enqueue css
 /* ------------------------------------ */	
-if ( ! function_exists( 'blogline_styles' ) ) {
+if ( ! function_exists( 'blogside_styles' ) ) {
 	
-	function blogline_styles() {
-		wp_enqueue_style( 'blogline-style', get_stylesheet_uri() );
-		if ( get_theme_mod('responsive','on') =='on' ) { wp_enqueue_style( 'blogline-responsive', get_template_directory_uri().'/responsive.css' ); }
-		wp_enqueue_style( 'blogline-font-awesome', get_template_directory_uri().'/fonts/font-awesome.min.css' );
+	function blogside_styles() {
+		wp_enqueue_style( 'blogside-style', get_stylesheet_uri() );
+		if ( get_theme_mod('responsive','on') =='on' ) { wp_enqueue_style( 'blogside-responsive', get_template_directory_uri().'/responsive.css' ); }
+		wp_enqueue_style( 'blogside-font-awesome', get_template_directory_uri().'/fonts/font-awesome.min.css' );
 	}
 	
 }
-add_action( 'wp_enqueue_scripts', 'blogline_styles' );
+add_action( 'wp_enqueue_scripts', 'blogside_styles' );
 
 
 /* ------------------------------------------------------------------------- *
@@ -209,9 +209,9 @@ add_action( 'wp_enqueue_scripts', 'blogline_styles' );
 
 /*  Layout class
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_layout_class' ) ) {
+if ( ! function_exists( 'blogside_layout_class' ) ) {
 	
-	function blogline_layout_class() {
+	function blogside_layout_class() {
 		// Default layout
 		$layout = 'col-2cl';
 		$default = 'col-2cl';
@@ -251,9 +251,9 @@ if ( ! function_exists( 'blogline_layout_class' ) ) {
 
 /*  Dynamic sidebar primary
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_sidebar_primary' ) ) {
+if ( ! function_exists( 'blogside_sidebar_primary' ) ) {
 	
-	function blogline_sidebar_primary() {
+	function blogside_sidebar_primary() {
 		// Default sidebar
 		$sidebar = 'primary';
 
@@ -285,9 +285,9 @@ if ( ! function_exists( 'blogline_sidebar_primary' ) ) {
 
 /*  Dynamic sidebar secondary
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_sidebar_secondary' ) ) {
+if ( ! function_exists( 'blogside_sidebar_secondary' ) ) {
 
-	function blogline_sidebar_secondary() {
+	function blogside_sidebar_secondary() {
 		// Default sidebar
 		$sidebar = 'secondary';
 
@@ -319,9 +319,9 @@ if ( ! function_exists( 'blogline_sidebar_secondary' ) ) {
 
 /*  Social links
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_social_links' ) ) {
+if ( ! function_exists( 'blogside_social_links' ) ) {
 
-	function blogline_social_links() {
+	function blogside_social_links() {
 		if ( !get_theme_mod('social-links') =='' ) {
 			$links = get_theme_mod('social-links', array());
 			if ( !empty( $links ) ) {
@@ -355,9 +355,9 @@ if ( ! function_exists( 'blogline_social_links' ) ) {
 
 /*  Site name/logo
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_site_title' ) ) {
+if ( ! function_exists( 'blogside_site_title' ) ) {
 
-	function blogline_site_title() {
+	function blogside_site_title() {
 		
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 		$logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
@@ -385,9 +385,9 @@ if ( ! function_exists( 'blogline_site_title' ) ) {
 
 /*  Blog title
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_blog_title' ) ) {
+if ( ! function_exists( 'blogside_blog_title' ) ) {
 
-	function blogline_blog_title() {
+	function blogside_blog_title() {
 		global $post;
 		$heading = esc_html( get_theme_mod('blog-heading') );
 		$subheading = esc_html( get_theme_mod('blog-subheading') );
@@ -408,9 +408,9 @@ if ( ! function_exists( 'blogline_blog_title' ) ) {
 
 /*  Related posts
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_related_posts' ) ) {
+if ( ! function_exists( 'blogside_related_posts' ) ) {
 
-	function blogline_related_posts() {
+	function blogside_related_posts() {
 		wp_reset_postdata();
 		global $post;
 
@@ -459,9 +459,9 @@ if ( ! function_exists( 'blogline_related_posts' ) ) {
 
 /*  Get images attached to post
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_post_images' ) ) {
+if ( ! function_exists( 'blogside_post_images' ) ) {
 
-	function blogline_post_images( $args=array() ) {
+	function blogside_post_images( $args=array() ) {
 		global $post;
 
 		$defaults = array(
@@ -483,9 +483,9 @@ if ( ! function_exists( 'blogline_post_images' ) ) {
 
 /*  Get featured post ids
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_get_featured_post_ids' ) ) {
+if ( ! function_exists( 'blogside_get_featured_post_ids' ) ) {
 
-	function blogline_get_featured_post_ids() {
+	function blogside_get_featured_post_ids() {
 		$args = array(
 			'category'		=> absint( get_theme_mod('featured-category','') ),
 			'numberposts'	=> absint( get_theme_mod('featured-posts-count','3')),
@@ -506,10 +506,10 @@ if ( ! function_exists( 'blogline_get_featured_post_ids' ) ) {
 
 /*  Body class
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_body_class' ) ) {
+if ( ! function_exists( 'blogside_body_class' ) ) {
 
-	function blogline_body_class( $classes ) {
-		$classes[] = blogline_layout_class();
+	function blogside_body_class( $classes ) {
+		$classes[] = blogside_layout_class();
 		if ( get_theme_mod( 'boxed','off' ) != 'on' ) { $classes[] = 'full-width'; }
 		if ( get_theme_mod( 'boxed','off' ) == 'on' ) { $classes[] = 'boxed'; }
 		if ( has_nav_menu( 'topbar' ) ) { $classes[] = 'topbar-enabled'; }
@@ -519,14 +519,14 @@ if ( ! function_exists( 'blogline_body_class' ) ) {
 	}
 	
 }
-add_filter( 'body_class', 'blogline_body_class' );
+add_filter( 'body_class', 'blogside_body_class' );
 
 
 /*  Excerpt ending
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_excerpt_more' ) ) {
+if ( ! function_exists( 'blogside_excerpt_more' ) ) {
 
-	function blogline_excerpt_more( $more ) {
+	function blogside_excerpt_more( $more ) {
 		if ( is_admin() ) {
 			return $more;
 		}
@@ -534,14 +534,14 @@ if ( ! function_exists( 'blogline_excerpt_more' ) ) {
 	}
 	
 }
-add_filter( 'excerpt_more', 'blogline_excerpt_more' );
+add_filter( 'excerpt_more', 'blogside_excerpt_more' );
 
 
 /*  Excerpt length
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_excerpt_length' ) ) {
+if ( ! function_exists( 'blogside_excerpt_length' ) ) {
 
-	function blogline_excerpt_length( $length ) {
+	function blogside_excerpt_length( $length ) {
 		if ( is_admin() ) {
 			return $length;
 		}
@@ -555,14 +555,14 @@ if ( ! function_exists( 'blogline_excerpt_length' ) ) {
 	}
 	
 }
-add_filter( 'excerpt_length', 'blogline_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'blogside_excerpt_length', 999 );
 
 
 /*  Add responsive container to embeds
 /* ------------------------------------ */	
-if ( ! function_exists( 'blogline_embed_html' ) ) {
+if ( ! function_exists( 'blogside_embed_html' ) ) {
 
-	function blogline_embed_html( $html, $url ) {
+	function blogside_embed_html( $html, $url ) {
 		
 		$pattern    = '/^https?:\/\/(www\.)?twitter\.com/';
 		$is_twitter = preg_match( $pattern, $url );
@@ -575,19 +575,19 @@ if ( ! function_exists( 'blogline_embed_html' ) ) {
 	}
 
 }
-add_filter( 'embed_oembed_html', 'blogline_embed_html', 10, 3 );
+add_filter( 'embed_oembed_html', 'blogside_embed_html', 10, 3 );
 
 
 /*  Add responsive container to jetpack embeds
 /* ------------------------------------ */	
-if ( ! function_exists( 'blogline_embed_html_jp' ) ) {
+if ( ! function_exists( 'blogside_embed_html_jp' ) ) {
 
-	function blogline_embed_html_jp( $html ) {
+	function blogside_embed_html_jp( $html ) {
 		return '<div class="video-container">' . $html . '</div>';
 	}
 
 }
-add_filter( 'video_embed_html', 'blogline_embed_html_jp' );
+add_filter( 'video_embed_html', 'blogside_embed_html_jp' );
 
 
 /* ------------------------------------------------------------------------- *
@@ -596,9 +596,9 @@ add_filter( 'video_embed_html', 'blogline_embed_html_jp' );
 
 /*  Include or exclude featured articles in loop
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_pre_get_posts' ) ) {
+if ( ! function_exists( 'blogside_pre_get_posts' ) ) {
 
-	function blogline_pre_get_posts( $query ) {
+	function blogside_pre_get_posts( $query ) {
 		// Are we on main query ?
 		if ( !$query->is_main_query() ) return;
 		if ( $query->is_home() ) {
@@ -606,7 +606,7 @@ if ( ! function_exists( 'blogline_pre_get_posts' ) ) {
 			// Featured posts enabled
 			if ( get_theme_mod('featured-posts-count','3') != '0' ) {
 				// Get featured post ids
-				$featured_post_ids = blogline_get_featured_post_ids();
+				$featured_post_ids = blogside_get_featured_post_ids();
 				// Exclude posts
 				if ( $featured_post_ids && !get_theme_mod('featured-posts-include') )
 					$query->set('post__not_in', $featured_post_ids);
@@ -615,38 +615,38 @@ if ( ! function_exists( 'blogline_pre_get_posts' ) ) {
 	}
 	
 }
-add_action( 'pre_get_posts', 'blogline_pre_get_posts' );
+add_action( 'pre_get_posts', 'blogside_pre_get_posts' );
 
 
 /*  Script for no-js / js class
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_html_js_class' ) ) {
+if ( ! function_exists( 'blogside_html_js_class' ) ) {
 
-	function blogline_html_js_class () {
+	function blogside_html_js_class () {
 		echo '<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>'. "\n";
 	}
 	
 }
-add_action( 'wp_head', 'blogline_html_js_class', 1 );
+add_action( 'wp_head', 'blogside_html_js_class', 1 );
 
 
 /*  Script for no-js / js class
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_html_js_class' ) ) {
+if ( ! function_exists( 'blogside_html_js_class' ) ) {
 
-	function blogline_html_js_class () {
+	function blogside_html_js_class () {
 		echo '<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>'. "\n";
 	}
 	
 }
-add_action( 'wp_head', 'blogline_html_js_class', 1 );
+add_action( 'wp_head', 'blogside_html_js_class', 1 );
 
 
 /*  Admin panel css
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_admin_panel_css' ) ) {
+if ( ! function_exists( 'blogside_admin_panel_css' ) ) {
 	
-	function blogline_admin_panel_css() {
+	function blogside_admin_panel_css() {
 		global $pagenow;
 		if ( 'post.php' === $pagenow || 'post-new.php' === $pagenow ) {
 			echo '<style>
@@ -657,35 +657,35 @@ if ( ! function_exists( 'blogline_admin_panel_css' ) ) {
 	}
 
 }
-add_action( 'admin_head', 'blogline_admin_panel_css' );
+add_action( 'admin_head', 'blogside_admin_panel_css' );
 
 
 /*  TGM plugin activation
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_plugins' ) ) {
+if ( ! function_exists( 'blogside_plugins' ) ) {
 	
-	function blogline_plugins() {	
+	function blogside_plugins() {	
 		if ( get_theme_mod('recommended-plugins','on') =='on' ) { 	
 			// Add the following plugins
 			$plugins = array(
 				array(
-					'name' => esc_html__( 'Alx Extensions', 'blogline' ),
+					'name' => esc_html__( 'Alx Extensions', 'blogside' ),
 					'slug' => 'alx-extensions',
 				),
 				array(
-					'name' => esc_html__( 'Meta Box', 'blogline' ),
+					'name' => esc_html__( 'Meta Box', 'blogside' ),
 					'slug' => 'meta-box',
 				),
 				array(
-					'name' => esc_html__( 'Regenerate Thumbnails', 'blogline' ),
+					'name' => esc_html__( 'Regenerate Thumbnails', 'blogside' ),
 					'slug' => 'regenerate-thumbnails',
 				),
 				array(
-					'name' => esc_html__( 'WP-PageNavi', 'blogline' ),
+					'name' => esc_html__( 'WP-PageNavi', 'blogside' ),
 					'slug' => 'wp-pagenavi',
 				),
 				array(
-					'name' => esc_html__( 'Responsive Lightbox', 'blogline' ),
+					'name' => esc_html__( 'Responsive Lightbox', 'blogside' ),
 					'slug' => 'responsive-lightbox',
 				)
 			);	
@@ -694,23 +694,23 @@ if ( ! function_exists( 'blogline_plugins' ) ) {
 	}
 	
 }
-add_action( 'tgmpa_register', 'blogline_plugins' );
+add_action( 'tgmpa_register', 'blogside_plugins' );
 
 
 /*  WooCommerce basic support
 /* ------------------------------------ */
-function blogline_wc_wrapper_start() {
+function blogside_wc_wrapper_start() {
 	echo '<div class="content">';
 	echo '<div class="pad">';
 }
-function blogline_wc_wrapper_end() {
+function blogside_wc_wrapper_end() {
 	echo '</div>';
 	echo '</div>';
 }
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
-add_action('woocommerce_before_main_content', 'blogline_wc_wrapper_start', 10);
-add_action('woocommerce_after_main_content', 'blogline_wc_wrapper_end', 10);
+add_action('woocommerce_before_main_content', 'blogside_wc_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'blogside_wc_wrapper_end', 10);
 
 
 /* ------------------------------------------------------------------------- *
@@ -719,40 +719,47 @@ add_action('woocommerce_after_main_content', 'blogline_wc_wrapper_end', 10);
 
 /*  Flexslider gallery post format
 /* ------------------------------------ */
-if ( ! function_exists( 'blogline_flexslider_gallery' ) ) {
+if ( ! function_exists( 'blogside_flexslider_gallery' ) ) {
 
-	function blogline_flexslider_gallery() {
+	function blogside_flexslider_gallery() {
 
-		if( has_post_format( 'gallery' ) ) {
+		if( ( is_home() || is_single() || is_archive() || is_search() ) && have_posts() ) {
+			while( have_posts() ) {
+				the_post();
 
-			$script = '
-			jQuery(document).ready(function(){
-				var firstImage = jQuery("#flexslider-' . get_the_ID() . '").find("img").filter(":first"),
-				   checkforloaded = setInterval(function() {
-					   var image = firstImage.get(0);
-					   if (image.complete || image.readyState == "complete" || image.readyState == 4) {
-						   clearInterval(checkforloaded);
-						   jQuery("#flexslider-' . get_the_ID() . '").flexslider({
-							   animation: "fade",
-							   slideshow: false,
-							   directionNav: true,
-							   controlNav: false,
-							   pauseOnHover: true,
-							   slideshowSpeed: 7000,
-							   animationSpeed: 600,
-							   smoothHeight: true,
-							   touch: false
-						   });
-					   }
-				   }, 20);
-			   });
-			';
+				if( get_post_format() && get_post_format() === 'gallery' ) {
+					
+					$script = '
+					jQuery(document).ready(function(){
+						var firstImage = jQuery("#flexslider-' . get_the_ID() . '").find("img").filter(":first"),
+						   checkforloaded = setInterval(function() {
+							   var image = firstImage.get(0);
+							   if (image.complete || image.readyState == "complete" || image.readyState == 4) {
+								   clearInterval(checkforloaded);
+								   jQuery("#flexslider-' . get_the_ID() . '").flexslider({
+									   animation: "fade",
+									   slideshow: false,
+									   directionNav: true,
+									   controlNav: false,
+									   pauseOnHover: true,
+									   slideshowSpeed: 7000,
+									   animationSpeed: 600,
+									   smoothHeight: true,
+									   touch: false
+								   });
+							   }
+						   }, 20);
+					   });
+					';
 
-			wp_add_inline_script( 'blogline-scripts', $script );
-			
+					wp_add_inline_script( 'blogside-scripts', $script );
+					
+				}
+			}
 		}
+		
 	}
 	
 }
-add_action( 'wp_enqueue_scripts', 'blogline_flexslider_gallery' );
+add_action( 'wp_enqueue_scripts', 'blogside_flexslider_gallery' );
 
