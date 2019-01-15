@@ -1,8 +1,8 @@
 === Blogside ===
 Contributors: alxmedia
-Requires at least: 4.9
-Tested up to: 4.9
-Version: 1.0.5
+Requires at least: 5.0
+Tested up to: 5.0
+Version: 1.0.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, custom-colors, custom-menu, featured-images, flexible-header, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, custom-logo, custom-header, custom-background
@@ -73,6 +73,9 @@ Sidebar images
 1. ID 944262 - https://pixabay.com/en/guitar-beautiful-music-instrument-944262/ - CC0 1.0 Universal (CC0 1.0)
 
 == Changelog ==
+
+= 1.0.6 - 2019-01-15 =
+* Added custom image sizes for alx-posts and alx-tabs widgets (now loading from alx-extensions plugin instead)
 
 = 1.0.5 - 2018-10-17 =
 * Renamed theme from Blogline (already taken) to Blogside

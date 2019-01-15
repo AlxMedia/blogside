@@ -73,6 +73,10 @@ if ( ! function_exists( 'blogside_setup' ) ) {
 		add_image_size( 'blogside-medium', 520, 292, true );
 		add_image_size( 'blogside-large', 720, 404, true );
 		add_image_size( 'blogside-list', 320, 320, true );
+		
+		// Thumbnail sizes custom widgets
+		add_image_size( 'alx-small', 200, 200, true );
+		add_image_size( 'alx-medium', 520, 292, true );
 
 		// Custom menu areas
 		register_nav_menus( array(
