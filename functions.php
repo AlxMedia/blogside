@@ -80,6 +80,7 @@ if ( ! function_exists( 'blogside_setup' ) ) {
 		register_nav_menus( array(
 			'mobile' 	=> esc_html__( 'Mobile', 'blogside' ),
 			'topbar' 	=> esc_html__( 'Topbar', 'blogside' ),
+			'footer' 	=> esc_html__( 'Footer', 'blogside' ),
 		) );
 	}
 	
