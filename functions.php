@@ -11,6 +11,9 @@
  *  Load theme files
 /* ------------------------------------------------------------------------- */	
 
+// Load Kirki
+include( get_template_directory() . '/functions/kirki/kirki.php' );
+
 if ( ! function_exists( 'blogside_load' ) ) {
 	
 	function blogside_load() {
@@ -18,13 +21,8 @@ if ( ! function_exists( 'blogside_load' ) ) {
 		load_theme_textdomain( 'blogside', get_template_directory().'/languages' );
 		
 		// Load theme options and meta boxes
-		include( get_template_directory() . '/functions/kirki/kirki.php' );
 		include( get_template_directory() . '/functions/theme-options.php' );
 		include( get_template_directory() . '/functions/meta-boxes.php' );
-		
-		// Load custom widgets
-		include( get_template_directory() . '/functions/widgets/alx-tabs.php' );
-		include( get_template_directory() . '/functions/widgets/alx-posts.php' );
 
 		// Load dynamic styles
 		include( get_template_directory() . '/functions/dynamic-styles.php' );
