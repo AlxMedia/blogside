@@ -568,11 +568,11 @@ box-shadow: 0 0 2px rgba(255,255,255,0.4);
 
 /*  header : search
 /* ------------------------------------ */
-.toggle-search { color: #555; font-size: 18px; line-height: 24px; cursor: pointer; padding: 16px 20px; border-right: 1px solid #eee; display: block; position: absolute; right: 30px; top: -56px; }
+.toggle-search { color: #555; font-size: 18px; line-height: 24px; cursor: pointer; padding: 16px 20px; border-right: 1px solid #eee; display: block; position: absolute; right: 0; top: -56px; }
 .toggle-search:hover,
 .toggle-search.active { color: #55acee; }
 .toggle-search.active .fa.fa-search:before { content: "\f00d"; font-size: 22px; }
-.search-expand { display: none; background: #fff; position: absolute; top: 0; right: 30px; width: 340px; -webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.05); box-shadow: 0 2px 2px rgba(0,0,0,0.05);  }
+.search-expand { display: none; background: #fff; position: absolute; top: 0; right: 0; width: 340px; -webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.05); box-shadow: 0 2px 2px rgba(0,0,0,0.05);  }
 .search-expand-inner { padding: 0 10px 10px; border: 1px solid #e5e5e5; border-top: 0; }
 .search-expand .themeform input { background: #f2f2f2; width: 100%; border: 1px solid #eee; border-radius: 0; }
 .search-expand .themeform input:focus { border-color: #ccc; }
@@ -623,7 +623,7 @@ box-shadow: 0 0 2px rgba(255,255,255,0.4);
 	/* common */
 	#nav-topbar .nav { font-weight: 600; text-transform: uppercase; }
 	#nav-topbar .nav li a { font-size: 13px; color: #222; }	
-	#nav-topbar .nav > li:first-child { margin-left: 30px; }
+	#nav-topbar .nav > li:first-child {  }
 	/* level 1 */
 	#nav-topbar .nav > li { border-left: 1px solid #f2f2f2; border-right: none; }
 	#nav-topbar .nav > li > a { padding: 18px 16px; border-top: 3px solid #777; margin-top: -3px; }
