@@ -20,7 +20,7 @@ Blogside is a responsive 100% high resolution theme for personal blogs. Unique t
 
 == Documentation ==
 
-http://alxmedia.se/documentation/
+http://alx.media/documentation/
 
 == Copyright ==
 
