@@ -65,16 +65,16 @@ Source: https://github.com/aristath/kirki
 
 Screenshot images
 License: CC0 1.0 Universal (CC0 1.0)
-Source: http://pixabay.com/
+Source: https://stocksnap.io
 
 Content images
-1. ID 677770 - https://pixabay.com/en/person-male-man-looking-sitting-677770/ - CC0 1.0 Universal (CC0 1.0)
-2. ID 642118 - https://pixabay.com/en/woman-photo-taking-picture-642118/ - CC0 1.0 Universal (CC0 1.0)
-3. ID 569349 - https://pixabay.com/en/cafe-man-sitting-people-male-569349/ - CC0 1.0 Universal (CC0 1.0)
-4. ID 336606 - https://pixabay.com/en/vw-camper-volkswagen-vw-car-336606/ - CC0 1.0 Universal (CC0 1.0)
+1. https://stocksnap.io/photo/23H66MTGXA - CC0 1.0 Universal (CC0 1.0)
+2. https://stocksnap.io/photo/Y01VDYAX63 - CC0 1.0 Universal (CC0 1.0)
+3. https://stocksnap.io/photo/DGYLV0KMUY - CC0 1.0 Universal (CC0 1.0)
+4. https://stocksnap.io/photo/TNK87N7464 - CC0 1.0 Universal (CC0 1.0)
 
 Sidebar images
-1. ID 944262 - https://pixabay.com/en/guitar-beautiful-music-instrument-944262/ - CC0 1.0 Universal (CC0 1.0)
+1. https://stocksnap.io/photo/IPXQTD44G8 - CC0 1.0 Universal (CC0 1.0)
 
 == Changelog ==
 
