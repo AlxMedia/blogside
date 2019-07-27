@@ -2,7 +2,7 @@
 Contributors: alxmedia
 Requires at least: 5.0
 Tested up to: 5.0
-Version: 1.1.1
+Version: 1.1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, custom-colors, custom-menu, featured-images, flexible-header, full-width-template, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, custom-logo, custom-header, custom-background
@@ -77,6 +77,15 @@ Sidebar images
 1. ID 944262 - https://pixabay.com/en/guitar-beautiful-music-instrument-944262/ - CC0 1.0 Universal (CC0 1.0)
 
 == Changelog ==
+
+= 1.1.2 - 2019-07-27 =
+* Added theme accessibility with skip links
+* Added wp_body_open to header.php
+* Fixed WP-PageNavi styling issue
+* Fixed themeforms styling issue
+* Updated language files
+* Removed Responsive Lightbox as recommended plugin
+* Updated theme screenshot and readme credits, now using images from stocksnap.io only
 
 = 1.1.1 - 2019-03-11 =
 * Updated to Kirki 3.0.38

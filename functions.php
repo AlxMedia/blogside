@@ -633,18 +633,6 @@ if ( ! function_exists( 'blogside_html_js_class' ) ) {
 add_action( 'wp_head', 'blogside_html_js_class', 1 );
 
 
-/*  Script for no-js / js class
-/* ------------------------------------ */
-if ( ! function_exists( 'blogside_html_js_class' ) ) {
-
-	function blogside_html_js_class () {
-		echo '<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>'. "\n";
-	}
-	
-}
-add_action( 'wp_head', 'blogside_html_js_class', 1 );
-
-
 /*  Admin panel css
 /* ------------------------------------ */
 if ( ! function_exists( 'blogside_admin_panel_css' ) ) {
@@ -686,10 +674,6 @@ if ( ! function_exists( 'blogside_plugins' ) ) {
 				array(
 					'name' => esc_html__( 'WP-PageNavi', 'blogside' ),
 					'slug' => 'wp-pagenavi',
-				),
-				array(
-					'name' => esc_html__( 'Responsive Lightbox', 'blogside' ),
-					'slug' => 'responsive-lightbox',
 				)
 			);	
 			tgmpa( $plugins );
@@ -766,3 +750,14 @@ if ( ! function_exists( 'blogside_flexslider_gallery' ) ) {
 }
 add_action( 'wp_enqueue_scripts', 'blogside_flexslider_gallery' );
 
+
+/*  Accessibility IE11 fix - https://git.io/vWdr2
+/* ------------------------------------ */
+function blogside_skip_link_focus_fix() {
+	?>
+	<script>
+	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+	</script>
+	<?php
+}
+add_action( 'wp_print_footer_scripts', 'blogside_skip_link_focus_fix' );
