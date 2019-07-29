@@ -10,8 +10,8 @@
 				
 				<ul class="post-meta group">
 					<li><?php the_category(' / '); ?></li>
-					<li><i class="fa fa-clock-o"></i><?php the_time( get_option('date_format') ); ?></li>
-					<?php if ( comments_open() ): ?><li><a href="<?php comments_link(); ?>"><i class="fa fa-comment"></i><?php comments_number( '0', '1', '%' ); ?></a></li><?php endif; ?>
+					<li><i class="far fa-clock"></i><?php the_time( get_option('date_format') ); ?></li>
+					<?php if ( comments_open() ): ?><li><a href="<?php comments_link(); ?>"><i class="fas fa-comment"></i><?php comments_number( '0', '1', '%' ); ?></a></li><?php endif; ?>
 				</ul><!--/.post-meta-->
 				
 				<?php if( get_post_format() ) { get_template_part('inc/post-formats'); } ?>
