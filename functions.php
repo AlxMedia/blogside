@@ -198,7 +198,7 @@ if ( ! function_exists( 'blogside_styles' ) ) {
 	
 	function blogside_styles() {
 		wp_enqueue_style( 'blogside-style', get_stylesheet_uri() );
-		if ( get_theme_mod('responsive','on') =='on' ) { wp_enqueue_style( 'blogside-responsive', get_template_directory_uri().'/responsive.css' ); }
+		wp_enqueue_style( 'blogside-responsive', get_template_directory_uri().'/responsive.css' );
 		wp_enqueue_style( 'blogside-font-awesome', get_template_directory_uri().'/fonts/all.min.css' );
 	}
 	
