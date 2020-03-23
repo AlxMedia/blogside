@@ -24,7 +24,7 @@ Kirki::add_section( 'reviewlink', array(
 	'panel'       => 'options',
 	'type'        => 'link',
 	'button_text' => esc_html__( 'Write a Review', 'blogside' ),
-	'button_url'  => 'https://wordpress.org/support/theme/blogside/reviews/?filter=5#new-post',
+	'button_url'  => 'https://wordpress.org/support/theme/blogside/reviews/#new-post',
 	'priority'    => 1,
 ) );
 
