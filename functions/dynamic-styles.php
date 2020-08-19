@@ -95,10 +95,10 @@ if ( ! function_exists( 'blogside_dynamic_css' ) ) {
 			// container width
 			if ( get_theme_mod('container-width','1120') != '1120' ) {			
 				if ( get_theme_mod( 'boxed' ) ) { 
-					$styles .= '.boxed #wrapper, .container-inner { max-width: '.esc_attr( get_theme_mod('container-width') ).'px; }'."\n";
+					$styles .= '.boxed #wrapper, .container-inner, #header .nav-menu:not(.mobile) { max-width: '.esc_attr( get_theme_mod('container-width') ).'px; }'."\n";
 				}
 				else {
-					$styles .= '.container-inner { max-width: '.esc_attr( get_theme_mod('container-width') ).'px; }'."\n";
+					$styles .= '.container-inner, #header .nav-menu:not(.mobile) { max-width: '.esc_attr( get_theme_mod('container-width') ).'px; }'."\n";
 				}
 			}
 			// primary color
@@ -111,16 +111,6 @@ a,
 .themeform label .required,
 .toggle-search:hover,
 .toggle-search.active,
-#nav-topbar .nav li > a:hover, 
-#nav-topbar .nav li:hover > a,
-#nav-topbar .nav li.current_page_item > a, 
-#nav-topbar .nav li.current-menu-item > a,
-#nav-topbar .nav li.current-post-parent > a,
-#nav-topbar .nav li.current-menu-ancestor > a,
-#nav-mobile .nav li > a:hover,
-#nav-mobile .nav li.current_page_item > a, 
-#nav-mobile .nav li.current-menu-item > a,
-#nav-mobile .nav li.current-post-parent > a,
 .post-title a:hover,
 .post-hover:hover .post-title a,
 .post-nav li a:hover i,
@@ -156,16 +146,11 @@ a,
 
 .alx-tabs-nav li.active a { border-color: '.esc_attr( get_theme_mod('color-1') ).'; }
 
-#nav-topbar .nav li > a:hover, 
-#nav-topbar .nav li:hover > a,
-#nav-topbar .nav li.current_page_item > a, 
-#nav-topbar .nav li.current-menu-item > a,
-#nav-topbar .nav li.current-menu-ancestor > a,
-#nav-topbar .nav li.current-post-parent > a,
-#nav-topbar .nav > li.current_page_item > a:before, 
-#nav-topbar .nav > li.current-menu-item > a:before,
-#nav-topbar .nav > li.current-menu-ancestor > a:before,
-#nav-topbar .nav > li.current-post-parent > a:before { border-top-color: '.esc_attr( get_theme_mod('color-1') ).';  }
+#header .nav-menu:not(.mobile) > div > ul > li:hover > span,
+#header .nav-menu:not(.mobile) li.current_page_item > span, 
+#header .nav-menu:not(.mobile) li.current-menu-item > span, 
+#header .nav-menu:not(.mobile) li.current-menu-ancestor > span, 
+#header .nav-menu:not(.mobile) li.current-post-parent > span { border-top-color: '.esc_attr( get_theme_mod('color-1') ).';  }
 
 #footer-bottom .container-inner,
 .widget > h3 > span,
