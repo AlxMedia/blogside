@@ -51,7 +51,7 @@
 		<div class="container" id="footer-bottom">
 		
 			<?php if ( has_nav_menu('footer') ): ?>
-				<div id="footer-menu-footer" class="container-inner">
+				<div id="wrap-nav-footer" class="container-inner">
 					<?php \AlxMedia\Nav::nav_menu(array('theme_location'=>'footer','menu_id' => 'nav-footer','fallback_cb'=> false)); ?>
 				</div>
 			<?php endif; ?>
