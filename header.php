@@ -21,7 +21,7 @@
 	<header id="header">
 		
 		<?php if ( has_nav_menu('mobile') ): ?>
-			<div id="wrap-nav-mobile">
+			<div id="wrap-nav-mobile" class="wrap-nav">
 				<?php \AlxMedia\Nav::nav_menu(array('theme_location'=>'mobile','menu_id' => 'nav-mobile','fallback_cb'=> false)); ?>
 				
 				<?php if ( get_theme_mod( 'header-search', 'on' ) == 'on' ): ?>
@@ -41,7 +41,7 @@
 		<?php endif; ?>
 		
 		<?php if ( has_nav_menu('topbar') ): ?>
-			<div id="wrap-nav-topbar">
+			<div id="wrap-nav-topbar" class="wrap-nav">
 				<?php \AlxMedia\Nav::nav_menu(array('theme_location'=>'topbar','menu_id' => 'nav-topbar','fallback_cb'=> false)); ?>
 				
 				<?php if ( get_theme_mod( 'topbar-search', 'on' ) == 'on' ): ?>
@@ -77,14 +77,6 @@
 						<img class="site-image" src="<?php header_image(); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 					</a>
 				</div>
-			<?php endif; ?>
-
-			<?php if ( has_nav_menu('header') ): ?>
-				<nav class="nav-container group" id="nav-header">
-					<div class="nav-toggle"><i class="fas fa-bars"></i></div>
-					<div class="nav-text"><!-- put your mobile menu text here --></div>
-					<div class="nav-wrap container"><?php wp_nav_menu(array('theme_location'=>'header','menu_class'=>'nav group','container'=>'','menu_id' => '','fallback_cb'=> false)); ?></div>
-				</nav><!--/#nav-header-->
 			<?php endif; ?>
 
 		</div><!--/.container-->
