@@ -12,14 +12,14 @@
 		
 			
 			<?php if ( get_theme_mod('profile-image') ): ?>
-				<div id="profile-image"><div id="profile-overlay"></div><img src="<?php echo get_theme_mod('profile-image'); ?>" alt="" /></div>
+				<div id="profile-image"><div id="profile-overlay"></div><img src="<?php echo esc_html( get_theme_mod('profile-image') ); ?>" alt="" /></div>
 			<?php endif; ?>
 			<div id="profile" class="group">
 				<?php if ( get_theme_mod('profile-name') ): ?>
-					<div id="profile-name"><?php echo get_theme_mod('profile-name'); ?></div>
+					<div id="profile-name"><?php echo esc_html( get_theme_mod('profile-name') ); ?></div>
 				<?php endif; ?>
 				<?php if ( get_theme_mod('profile-description') ): ?>
-					<div id="profile-description"><?php echo get_theme_mod('profile-description'); ?></div>
+					<div id="profile-description"><?php echo wp_kses_post( get_theme_mod('profile-description') ); ?></div>
 				<?php endif; ?>
 				<?php if ( get_theme_mod( 'header-social', 'on' ) == 'on' ): ?>
 					<?php blogside_social_links() ; ?>
