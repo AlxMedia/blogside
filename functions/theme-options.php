@@ -571,7 +571,7 @@ Kirki::add_field( 'blogside_theme', array(
 	'label'			=> esc_html__( 'Create Social Links', 'blogside' ),
 	'description'	=> esc_html__( 'Create and organize your social links', 'blogside' ),
 	'section'		=> 'social',
-	'tooltip'		=> esc_html__( 'Font Awesome names:', 'blogside' ) . ' <a href="https://fontawesome.com/v5/search?s=brands" target="_blank"><strong>' . esc_html__( 'View All', 'blogside' ) . ' </strong></a>',
+	'tooltip'		=> esc_html__( 'Font Awesome names:', 'blogside' ) . ' <a href="https://fontawesome.com/search?o=r&m=free&f=brands" target="_blank"><strong>' . esc_html__( 'View All', 'blogside' ) . ' </strong></a>',
 	'row_label'		=> array(
 		'type'	=> 'text',
 		'value'	=> esc_html__('social link', 'blogside' ),
@@ -588,7 +588,7 @@ Kirki::add_field( 'blogside_theme', array(
 		'social-icon'	=> array(
 			'type'			=> 'text',
 			'label'			=> esc_html__( 'Icon Name', 'blogside' ),
-			'description'	=> esc_html__( 'Font Awesome icons. Ex: fa-facebook ', 'blogside' ) . ' <a href="https://fontawesome.com/v5/search?s=brands" target="_blank"><strong>' . esc_html__( 'View All', 'blogside' ) . ' </strong></a>',
+			'description'	=> esc_html__( 'Font Awesome icons. Ex: fa-facebook ', 'blogside' ) . ' <a href="https://fontawesome.com/search?o=r&m=free&f=brands" target="_blank"><strong>' . esc_html__( 'View All', 'blogside' ) . ' </strong></a>',
 			'default'		=> 'fa-',
 		),
 		'social-link'	=> array(
