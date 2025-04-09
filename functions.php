@@ -781,3 +781,16 @@ function blogside_skip_link_focus_fix() {
 	<?php
 }
 add_action( 'wp_print_footer_scripts', 'blogside_skip_link_focus_fix' );
+
+
+/*  Kirki deprecated fix
+/* ------------------------------------ */
+function blogside_kirki_config( $config ) {
+
+	if ( isset( $config['compiler'] ) ) {
+		unset( $config['compiler'] );
+	}
+
+	return $config;
+}
+add_filter( 'kirki/config', 'blogside_kirki_config', 999 );
